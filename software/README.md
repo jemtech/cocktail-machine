@@ -7,6 +7,8 @@ sudo apt install git
 
 Install needed libs:
 
+sudo pip install Flask
+sudo pip install connexion[swagger-ui]
 sudo pip install mysql-connector
 sudo pip install adafruit-pca9685
 sudo pip install pcf8574
