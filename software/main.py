@@ -29,20 +29,23 @@ def pumpLoop(pump):
             
 
 def mainLoop():
-    print('to list pumps type pumps')
-    print('to select a pump type its number')
-    inputVal = input()
-    
-    if inputVal == 'pumps':
-        for pump in theCocktailMashine.pumps:
-            print('Pump: ' + str(pump.id))
-            print('|-pcf_fw: ' + str(pump.pcf_fw))
-            print('|-pcf_bw: ' + str(pump.pcf_bw))
-    else:
-        pumpId = int(inputVal)
-        for pump in theCocktailMashine.pumps:
-            if pump.id == pumpId:
-                pumpLoop(pump)
-                break
+    try:
+        print('to list pumps type pumps')
+        print('to select a pump type its number')
+        inputVal = input()
+        
+        if inputVal == 'pumps':
+            for pump in theCocktailMashine.pumps:
+                print('Pump: ' + str(pump.id))
+                print('|-pcf_fw: ' + str(pump.pcf_fw))
+                print('|-pcf_bw: ' + str(pump.pcf_bw))
+        else:
+            pumpId = int(inputVal)
+            for pump in theCocktailMashine.pumps:
+                if pump.id == pumpId:
+                    pumpLoop(pump)
+                    break
+    except:
+        print('Error')
     mainLoop()
 mainLoop()
