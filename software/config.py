@@ -1,5 +1,6 @@
 import configparser
 import logging
+import os.path
 
 class Config:
     configCach = None
