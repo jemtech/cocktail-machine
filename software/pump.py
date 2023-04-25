@@ -14,7 +14,7 @@ class Pump:
         self.mlPerS = mlPerS
         self.pwmChannel = pwmChannel
         self.pcf = PCF8574(i2c_port_num, pcf_address)
-        self.pullBack = pullBackMl
+        self.pullBackMl = pullBackMl
         self.pcf_fw = pcf_fw
         self.pcf_bw = pcf_bw
     
