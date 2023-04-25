@@ -13,17 +13,17 @@ def startApiServer():
     # run the thread
     thread.start()
     
-startApiServer()
+#startApiServer()
 
 
 def pumpLoop(pump):
     print('to pump type the amount in ml')
     print('to to go back type exit')
-    input = input()
-    if input == 'exit':
+    inputVal = input()
+    if inputVal == 'exit':
         return
     else:
-        ml = float(input)
+        ml = float(inputVal)
         if ml > 0:
             pump.pump(ml)
             
@@ -31,15 +31,15 @@ def pumpLoop(pump):
 def mainLoop():
     print('to list pumps type pumps')
     print('to select a pump type its number')
-    input = input()
+    inputVal = input()
     
-    if input == 'pumps':
+    if inputVal == 'pumps':
         for pump in theCocktailMashine.pumps:
             print('Pump: ' + str(pump.id))
             print('|-pcf_fw: ' + str(pump.pcf_fw))
             print('|-pcf_bw: ' + str(pump.pcf_bw))
     else:
-        pumpId = int(input)
+        pumpId = int(inputVal)
         for pump in theCocktailMashine.pumps:
             if pump.id == pumpId:
                 pumpLoop(pump)
