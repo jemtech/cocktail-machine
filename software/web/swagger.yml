@@ -29,9 +29,9 @@ paths:
                   type: "integer"
                 name:
                   type: "string"
-  /RecipeItem:
+  /recipeItem:
     get:
-      operationId: recipeItem.read
+      operationId: recipeItem.read_all
       tags:
         - RecipeItem
       description: "Read all RecipeItem"

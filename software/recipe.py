@@ -6,4 +6,6 @@ class Recepy:
         self.name
         self.recipeItems
 
+    def readAll(self):
+        pass
     

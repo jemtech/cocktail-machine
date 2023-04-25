@@ -1,6 +1,6 @@
 from threading import Thread
 import config
-import web.webServer
+import web.webServer as webServer
 from cocktailMashine import CocktailMashine 
 
 config.configLogger()
