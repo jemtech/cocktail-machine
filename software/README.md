@@ -5,11 +5,12 @@ sudo apt install python-smbus
 sudo apt install rpi.gpio
 sudo apt install mariadb-server
 sudo apt install git
+sudo apt install pip
 
 Install needed libs:
 
-sudo pip install Flask
-sudo pip install connexion[swagger-ui]
-sudo pip install mysql-connector
-sudo pip install adafruit-pca9685
-sudo pip install pcf8574
+pip install Flask
+pip install connexion[swagger-ui]
+pip install mysql-connector
+pip install adafruit-pca9685
+pip install pcf8574
