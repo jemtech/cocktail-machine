@@ -8,8 +8,9 @@ import time
 class Pump:
     pwm = Adafruit_PCA9685.PCA9685()
     
-    def __init__(self, mlPerS = 150.0, pwmChannel = None, pcf_address = 0x20,
+    def __init__(self, id, mlPerS = 150.0, pwmChannel = None, pcf_address = 0x20,
                   i2c_port_num = 1, pcf_fw = 0, pcf_bw = 1, pullBackMl = 1):
+        self.id = id
         self.mlPerS = mlPerS
         self.pwmChannel = pwmChannel
         self.pcf = PCF8574(i2c_port_num, pcf_address)

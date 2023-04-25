@@ -1,0 +1,52 @@
+[ALL]
+count = 10
+[0]
+pcf_address = 0x20
+i2c_port_num = 1
+pcf_fw = 0
+pcf_bw = 1
+[1]
+pcf_address = 0x20
+i2c_port_num = 1
+pcf_fw = 2
+pcf_bw = 3
+[2]
+pcf_address = 0x20
+i2c_port_num = 1
+pcf_fw = 4
+pcf_bw = 5
+[3]
+pcf_address = 0x20
+i2c_port_num = 1
+pcf_fw = 6
+pcf_bw = 7
+[4]
+pcf_address = 0x21
+i2c_port_num = 1
+pcf_fw = 0
+pcf_bw = 1
+[5]
+pcf_address = 0x21
+i2c_port_num = 1
+pcf_fw = 2
+pcf_bw = 3
+[6]
+pcf_address = 0x21
+i2c_port_num = 1
+pcf_fw = 4
+pcf_bw = 5
+[7]
+pcf_address = 0x21
+i2c_port_num = 1
+pcf_fw = 6
+pcf_bw = 7
+[8]
+pcf_address = 0x22
+i2c_port_num = 1
+pcf_fw = 0
+pcf_bw = 1
+[9]
+pcf_address = 0x22
+i2c_port_num = 1
+pcf_fw = 2
+pcf_bw = 3

@@ -1,6 +1,7 @@
 
 Other needed sofware:
 
+sudo apt install python-smbus
 sudo apt install rpi.gpio
 sudo apt install mariadb-server
 sudo apt install git
