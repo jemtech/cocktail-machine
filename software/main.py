@@ -7,13 +7,7 @@ config.configLogger()
 
 theCocktailMashine = CocktailMashine()
 
-def startApiServer():
-    # create a thread
-    thread = Thread(target=webServer.startServer)
-    # run the thread
-    thread.start()
-    
-#startApiServer()
+webServer.startServer()
 
 
 def pumpLoop(pump):

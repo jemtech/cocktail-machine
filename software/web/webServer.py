@@ -10,7 +10,7 @@ def startServer():
     app.add_api('swagger.yml')
     
     webConfig = config.getConfig()['WEB']
-    app.run(host=webConfig['host'], port=webConfig['port'], debug=True)
+    app.run(host=webConfig['host'], port=webConfig['port'], debug=False)
     
 # Create a URL route in our application for "/"
 #@app.route('/')
