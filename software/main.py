@@ -20,7 +20,7 @@ def pumpLoop(pump):
         ml = float(inputVal)
         if ml > 0:
             pump.pump(ml)
-            
+    pumpLoop(pump)
 
 def mainLoop():
     try:
