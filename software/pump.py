@@ -15,17 +15,19 @@ class Pump:
         self.pwmChannel = pwmChannel
         self.pcf = PCF8574(i2c_port_num, pcf_address)
         self.pullBack = pullBackMl
+        self.pcf_fw = pcf_fw
+        self.pcf_bw = pcf_bw
     
     def setSpeed(self, speed):
-        if self.pwmChannel == None:
+        if self.pwmChannel is None:
             return
-        if Pump.pwm == None:
+        if Pump.pwm is None:
             Pump.pwm = Adafruit_PCA9685.PCA9685()
         Pump.pwm.set_pwm(self.pwmChannel, 0, 4096*speed)
     
     def pump(self, ml):
-        pumpTimeS = float(ml + pullBackMl) / self.mlPerS
-        pullBackTimeS = float(pullBackMl) / self.mlPerS
+        pumpTimeS = float(ml + self.pullBackMl) / self.mlPerS
+        pullBackTimeS = float(self.pullBackMl) / self.mlPerS
         self.forward()
         time.sleep(pumpTimeS)
         backward()
@@ -33,20 +35,20 @@ class Pump:
         self.stop()
         
     def forward(self):
-        pcf_ports = pcf.port
-        pcf_ports[pcf_fw] = True
-        pcf_ports[pcf_bw] = False
-        pcf.port = pcf_ports
+        pcf_ports = self.pcf.port
+        pcf_ports[self.pcf_fw] = True
+        pcf_ports[self.pcf_bw] = False
+        self.pcf.port = pcf_ports
         
     def backward(self):
-        pcf_ports = pcf.port
-        pcf_ports[pcf_fw] = False
-        pcf_ports[pcf_bw] = True
-        pcf.port = pcf_ports
+        pcf_ports = self.pcf.port
+        pcf_ports[self.pcf_fw] = False
+        pcf_ports[self.pcf_bw] = True
+        self.pcf.port = pcf_ports
         
     def stop(self):
-        pcf_ports = pcf.port
-        pcf_ports[pcf_fw] = False
-        pcf_ports[pcf_bw] = False
-        pcf.port = pcf_ports
+        pcf_ports = self.pcf.port
+        pcf_ports[self.pcf_fw] = False
+        pcf_ports[self.pcf_bw] = False
+        self.pcf.port = pcf_ports
         

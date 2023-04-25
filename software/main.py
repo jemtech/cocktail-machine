@@ -23,8 +23,6 @@ def mainLoop():
     if input == 'pumps':
         for pump in theCocktailMashine.pumps:
             print('Pump: ' + str(pump.id))
-            print('|-i2c_port_num: ' + str(i2c_port_num))
-            print('|-pcf_address: ' + str(pcf_address))
             print('|-pcf_fw: ' + str(pcf_fw))
             print('|-pcf_bw: ' + str(pcf_bw))
     else:
@@ -34,7 +32,7 @@ def mainLoop():
                 pumpLoop(pump)
                 break
     mainLoop()
-
+mainLoop()
 def pumpLoop(pump):
     print('to pump type the amount in ml')
     print('to to go back type exit')
