@@ -30,7 +30,7 @@ class Pump:
         pullBackTimeS = float(self.pullBackMl) / self.mlPerS
         self.forward()
         time.sleep(pumpTimeS)
-        backward()
+        self.backward()
         time.sleep(pullBackTimeS)
         self.stop()
         
