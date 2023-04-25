@@ -5,5 +5,5 @@ class RecipeItem:
         self.ingredient
         self.ml
 
-    def read_all(self, recipeId):
-        pass
+def read_all(self, recipeId):
+    pass
