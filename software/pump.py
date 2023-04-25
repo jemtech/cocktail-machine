@@ -6,7 +6,7 @@ from pcf8574 import PCF8574
 import time
 
 class Pump:
-    pwm = Adafruit_PCA9685.PCA9685()
+    pwm = None
     
     def __init__(self, id, mlPerS = 150.0, pwmChannel = None, pcf_address = 0x20,
                   i2c_port_num = 1, pcf_fw = 0, pcf_bw = 1, pullBackMl = 1):
@@ -17,6 +17,10 @@ class Pump:
         self.pullBack = pullBackMl
     
     def setSpeed(self, speed):
+        if self.pwmChannel == None:
+            return
+        if Pump.pwm == None:
+            Pump.pwm = Adafruit_PCA9685.PCA9685()
         Pump.pwm.set_pwm(self.pwmChannel, 0, 4096*speed)
     
     def pump(self, ml):
