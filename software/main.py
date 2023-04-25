@@ -1,7 +1,8 @@
-import Config
+import config
 import webServer
+from cocktailMashine import CocktailMashine 
 
-Config.configLogger()
+config.configLogger()
 
 theCocktailMashine = CocktailMashine()
 
