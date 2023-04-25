@@ -1,4 +1,4 @@
-import Config
+import config
 from pump import Pump
 
 class CocktailMashine:
@@ -21,7 +21,7 @@ class CocktailMashine:
             
     def _configurePumps(self):
         self.pumps = []
-        pumpsConfig = Config.getPumpConfig()
+        pumpsConfig = config.getPumpConfig()
         count = pumpsConfig['ALL']['count']
         for i in range(count):
             pumpConfig = pumpsConfig[str(i)]

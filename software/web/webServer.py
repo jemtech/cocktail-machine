@@ -1,6 +1,6 @@
 #from flask import render_template
 import connexion
-import Config
+import config
 
 def startServer():
     # Create the application instance
@@ -9,7 +9,7 @@ def startServer():
     # Read the swagger.yml file to configure the endpoints
     app.add_api('swagger.yml')
     
-    webConfig = Config.getConfig()['WEB']
+    webConfig = config.getConfig()['WEB']
     app.run(host=webConfig['host'], port=webConfig['port'], debug=True)
     
 # Create a URL route in our application for "/"
