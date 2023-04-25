@@ -13,7 +13,7 @@ def startServer():
     app.run(host=webConfig['host'], port=webConfig['port'], debug=True)
     
 # Create a URL route in our application for "/"
-@app.route('/')
+#@app.route('/')
 def home():
     """
     This function just responds to the browser ULR
