@@ -22,13 +22,13 @@ class CocktailMashine:
     def _configurePumps(self):
         self.pumps = []
         pumpsConfig = config.getPumpConfig()
-        count = pumpsConfig['ALL']['count']
+        count = int(pumpsConfig['ALL']['count'])
         for i in range(count):
             pumpConfig = pumpsConfig[str(i)]
             pump = Pump(
                 id = i,
-                pcf_address = pumpConfig['pcf_address'],
-                i2c_port_num = pumpConfig['i2c_port_num'],
-                pcf_fw = pumpConfig['pcf_fw'],
-                pcf_bw = pumpConfig['pcf_bw'])
-            self.pumps.add(pump)
+                pcf_address = int(pumpConfig['pcf_address'],0),
+                i2c_port_num = int(pumpConfig['i2c_port_num']),
+                pcf_fw = int(pumpConfig['pcf_fw']),
+                pcf_bw = int(pumpConfig['pcf_bw']))
+            self.pumps.append(pump)
