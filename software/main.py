@@ -12,7 +12,7 @@ webServer.startServer()
 
 def pumpLoop(pump):
     print('to pump type the amount in ml')
-    print('to to go back type exit')
+    print('to go back type exit')
     inputVal = input()
     if inputVal == 'exit':
         return
@@ -26,6 +26,7 @@ def mainLoop():
     try:
         print('to list pumps type pumps')
         print('to select a pump type its number')
+        print('to quit type quit')
         inputVal = input()
         
         if inputVal == 'pumps':
@@ -33,6 +34,9 @@ def mainLoop():
                 print('Pump: ' + str(pump.id))
                 print('|-pcf_fw: ' + str(pump.pcf_fw))
                 print('|-pcf_bw: ' + str(pump.pcf_bw))
+        
+        elif inputVal == 'quit':
+            return
         else:
             pumpId = int(inputVal)
             for pump in theCocktailMashine.pumps:
