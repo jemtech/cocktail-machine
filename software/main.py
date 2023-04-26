@@ -1,11 +1,11 @@
 from threading import Thread
 import config
 import web.webServer as webServer
-from cocktailMashine import CocktailMashine 
+import cocktailMashine
 
 config.configLogger()
 
-theCocktailMashine = CocktailMashine()
+theCocktailMashine = cocktailMashine.getCocktailMashineSigelton()
 
 webServerThread = Thread(target=webServer.startServer)
 webServerThread.start()

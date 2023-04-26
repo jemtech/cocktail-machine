@@ -2,6 +2,7 @@ import config
 from pump import Pump
 
 class CocktailMashine:
+    singelton = None
     
     def __init__(self):
         self.pumps = None
@@ -32,3 +33,8 @@ class CocktailMashine:
                 pcf_fw = int(pumpConfig['pcf_fw']),
                 pcf_bw = int(pumpConfig['pcf_bw']))
             self.pumps.append(pump)
+            
+def getCocktailMashineSigelton():
+    if CocktailMashine.singelton is None:
+        CocktailMashine.singelton = CocktailMashine()
+    return CocktailMashine.singelton

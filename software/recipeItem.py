@@ -1,9 +1,29 @@
+import DBConnection
 
-class RecipeItem:
+class RecipeItem(object):
     
-    def __init__(self, ingredient, ml):
+    def __init__(self, ingredient, recipe, ml):
         self.ingredient
+        self.recipe
         self.ml
 
+class RecipeItemDB:
+    
+    def __handleRecipeItems(self, cursor):
+        self.recipeItems = []
+        for ingredient, recipe, ml in cursor:
+            recipeItem = RecipeItem(ingredient, recipe, ml)
+            self.recipeItems.append(recipeItem)
+            
+    def loadAll(self, recipeId):
+        query = "SELECT ingredient, recipe, ml FROM recipeItem"
+        query += " WHERE recipe=" + str(recipeId)
+        query += " order by name desc"
+        DBConnection.query(query, None, self.__handleRecipeItems)
+        if len(self.recipeItems) < 1:
+            return []
+        return self.recipeItems
+
+
 def read_all(recipeId):
-    pass
+    RecipeItemDB().loadAll(recipeId)

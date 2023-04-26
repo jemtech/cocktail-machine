@@ -50,5 +50,24 @@ paths:
               properties:
                 ingredient:
                   type: "integer"
+                recipe:
+                  type: "integer"
                 ml:
                   type: number
+  /ingredient:
+    get:
+      operationId: "ingredient.read_all"
+      tags:
+        - recipe
+      description: "Read all ingredient"
+      responses:
+        200:
+          description: "Successful read ingredient list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                id:
+                  type: "integer"
+                name:
+                  type: "string"
