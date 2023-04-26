@@ -1,4 +1,4 @@
-import db.DBConnection
+import db.DBConnection as DBConnection
 
 class Ingredient(object):
     
