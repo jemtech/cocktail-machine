@@ -16,7 +16,7 @@ paths:
     get:
       operationId: "recipe.read_all"
       tags:
-        - recipe
+        - Recipe
       description: "Read all recipe"
       responses:
         200:
@@ -58,7 +58,7 @@ paths:
     get:
       operationId: "ingredient.read_all"
       tags:
-        - recipe
+        - Ingredient
       description: "Read all ingredient"
       responses:
         200:
@@ -71,3 +71,25 @@ paths:
                   type: "integer"
                 name:
                   type: "string"
+    put:
+      operationId: "ingredient.insert"
+      tags:
+        - Ingredient
+      description: "insert a ingredient"
+      parameters:
+        - in: body
+          name: ingredient
+          description: The ingredient to insert.
+          schema:
+            properties:
+              name:
+                type: "string"
+      responses:
+        200:
+          description: "Successful insert ingredient operation"
+          schema:
+            properties:
+              id:
+                type: "integer"
+              name:
+                type: "string"
