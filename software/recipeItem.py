@@ -12,7 +12,11 @@ class RecipeItemDB:
     def __handleRecipeItems(self, cursor):
         self.recipeItems = []
         for ingredient, recipe, ml in cursor:
-            recipeItem = RecipeItem(ingredient, recipe, ml)
+            recipeItem ={
+                'ingredient': ingredient,
+                'recipe': recipe,
+                'ml': ml
+                }
             self.recipeItems.append(recipeItem)
             
     def loadAll(self, recipeId):

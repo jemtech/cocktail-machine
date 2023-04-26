@@ -11,7 +11,10 @@ class RecipeDB:
     def __handleRecipes(self, cursor):
         self.recipes = []
         for id, name in cursor:
-            recepy = Recipe(id, name)
+            recepy = {
+                'id': id,
+                'name': name
+                }
             self.recipes.append(recipe)
             
     def loadAll(self):
