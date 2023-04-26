@@ -1,4 +1,4 @@
-import DBConnection
+import db.DBConnection
 
 class Recipe(object):
     
