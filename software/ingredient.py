@@ -34,7 +34,7 @@ class IngredientDB:
         return self.ingredients
     
     def insert(self, ingredient):
-        DBConnection.dbAction("INSERT INTO ingredient (name) VALUES (%s) RETURNING id, name", (str(ingredient['name'])), self.__handleIngredients, commit = True)
+        DBConnection.dbAction("INSERT INTO ingredient (name) VALUES ('%s') RETURNING id,name", (str(ingredient['name'])), self.__handleIngredients, commit = True)
         return self.ingredients[0]
 
 def read_all():
