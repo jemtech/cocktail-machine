@@ -66,7 +66,7 @@ def mainLoop():
                 if pump.id == pumpId:
                     pumpLoop(pump)
                     break
-    except:
-        print('Error')
+    except Exception as e:
+        print(e)
     mainLoop()
 mainLoop()
