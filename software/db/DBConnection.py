@@ -1,5 +1,6 @@
 import mysql.connector as mariadb
 import config
+import logging
 from builtins import Exception
 
 class DBConnection:
