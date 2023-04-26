@@ -3,9 +3,9 @@ import db.DBConnection as DBConnection
 class RecipeItem(object):
     
     def __init__(self, ingredient, recipe, ml):
-        self.ingredient
-        self.recipe
-        self.ml
+        self.ingredient = ingredient
+        self.recipe = recipe
+        self.ml = ml
 
 class RecipeItemDB:
     

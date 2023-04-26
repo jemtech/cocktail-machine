@@ -3,8 +3,8 @@ import db.DBConnection as DBConnection
 class Ingredient(object):
     
     def __init__(self, id, name):
-        self.id
-        self.name
+        self.id = id
+        self.name = name
         
     @staticmethod
     def queryAll():
