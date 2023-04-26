@@ -17,6 +17,8 @@ pip install pcf8574
 
 Create DB
 CREATE DATABASE cocktail_mashine;
+CREATE USER 'cocktailsForAll' IDENTIFIED BY 'drunken1';
+GRANT ALL ON cocktail_mashine.* TO 'cocktailsForAll'@'%';
 CREATE TABLE recipe (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), PRIMARY KEY (id));
 CREATE TABLE ingredient (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), PRIMARY KEY (id));
 CREATE TABLE recipeItem (ingredient BIGINT NOT NULL, recipe BIGINT NOT NULL, ml DOUBLE, INDEX (recipe), INDEX (ingredient));

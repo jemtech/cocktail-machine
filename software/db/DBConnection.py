@@ -1,5 +1,5 @@
 import mysql.connector as mariadb
-import config
+import config as Config
 import logging
 from builtins import Exception
 
