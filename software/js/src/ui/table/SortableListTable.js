@@ -8,7 +8,7 @@ class SortableListTable extends UiElement {
 		this.baseElement = $('<table></table>');
 		super.setBaseJQueryObject(this.baseElement);
 		this.rowDatas = new SortableList();
-		renderEmpty();
+		this.renderEmpty();
 	}
 	
 	renderEmpty() {
@@ -43,7 +43,7 @@ class SortableListTable extends UiElement {
 	}
 	
 	rerender() {
-		renderEmpty();
+		this.renderEmpty();
 		this.renderRows();
 		return this;
 	}
