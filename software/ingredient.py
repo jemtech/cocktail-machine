@@ -38,8 +38,8 @@ class IngredientDB:
         return self.ingredients[0]
 
 def read_all():
-    IngredientDB().loadAll()
+    return IngredientDB().loadAll()
     
 def insert(ingredient):
-    IngredientDB().insert(ingredient)
+    return IngredientDB().insert(ingredient)
     

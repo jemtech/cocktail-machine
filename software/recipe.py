@@ -27,5 +27,5 @@ class RecipeDB:
         
 
 def read_all():
-    RecipeDB().loadAll()
+    return RecipeDB().loadAll()
     

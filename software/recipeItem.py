@@ -30,4 +30,4 @@ class RecipeItemDB:
 
 
 def read_all(recipeId):
-    RecipeItemDB().loadAll(recipeId)
+    return RecipeItemDB().loadAll(recipeId)
