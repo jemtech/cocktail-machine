@@ -52,3 +52,9 @@ class Pump:
         pcf_ports[self.pcf_bw] = False
         self.pcf.port = pcf_ports
         
+def read_all():
+    pump_hashs = []
+    for pump in cocktailMashine.getCocktailMashineSigelton().pumps:
+        pump_hash = {'id': pump.id}
+        pump_hashs.append(pump_hash)
+    return pump_hashs

@@ -38,3 +38,11 @@ def getCocktailMashineSigelton():
     if CocktailMashine.singelton is None:
         CocktailMashine.singelton = CocktailMashine()
     return CocktailMashine.singelton
+
+def pump_mappings():
+    pumpMappings = []
+    ingredientsPumpDic = getCocktailMashineSigelton().ingredientsPumpDic
+    for ingredientId in ingredientsPumpDic:
+        pumpMapping = {'pumpId': ingredientsPumpDic[ingredientId], 'ingredientId': ingredientId}
+        pumpMappings.append(pump)
+    return pumpMappings

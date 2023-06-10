@@ -13,6 +13,12 @@ class Ingredient(object):
             ingredient = Ingredient(id=dict['id'], name=dict['name'])
             ingredients.append(ingredient)
         return ingredients
+        
+    @staticmethod
+    def queryById(id):
+        ingredients = []
+        dict = IngredientDB().loadById(ingredientId)
+        return Ingredient(id=dict['id'], name=dict['name'])
 
 class IngredientDB:
     
@@ -32,6 +38,13 @@ class IngredientDB:
         if len(self.ingredients) < 1:
             return []
         return self.ingredients
+            
+    def loadById(self, id):
+        query = "SELECT id, name FROM ingredient Where id=%s"
+        DBConnection.query(query, (sensorId,), self.__handleIngredients)
+        if len(self.ingredients) < 1:
+            return
+        return self.ingredients[0]
     
     def insert(self, ingredient):
         DBConnection.dbAction("INSERT INTO ingredient (name) VALUES ('" + str(ingredient['name']) + "') RETURNING id,name", None, self.__handleIngredients, commit = True)
@@ -39,6 +52,9 @@ class IngredientDB:
 
 def read_all():
     return IngredientDB().loadAll()
+
+def read_one(ingredientId):
+    return IngredientDB().loadById(ingredientId)
     
 def insert(ingredient):
     return IngredientDB().insert(ingredient)

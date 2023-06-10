@@ -93,3 +93,57 @@ paths:
                 type: "integer"
               name:
                 type: "string"
+  /ingredient/{ingredientId}:
+    get:
+      operationId: ingredient.read_one
+      tags:
+        - Ingredient
+      summary: Read ingredient
+      description: Read one ingredient by Id
+      parameters:
+        - name: ingredientId
+          in: path
+          description: id of the ingredient
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read ingredient from db operation
+          schema:
+            properties:
+                id:
+                  type: "integer"
+                name:
+                  type: "string"
+  /pump:
+    get:
+      operationId: "pump.read_all"
+      tags:
+        - Pump
+      description: "Read all pump"
+      responses:
+        200:
+          description: "Successful read pump list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                id:
+                  type: "integer"
+  /pump_mapping:
+    get:
+      operationId: "cocktailMashine.pump_mappings"
+      tags:
+        - Pump
+      description: "Read all pump mappings"
+      responses:
+        200:
+          description: "Successful read pump mappings list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                pumpId:
+                  type: "integer"
+                ingredientId:
+                  type: "integer"
