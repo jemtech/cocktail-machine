@@ -10,7 +10,7 @@ class LandingPage {
 	render(){
 		let mainContet = Misc.getMainContent();
 		mainContet.append("Hello");
-		let ingedientList = IngedientList.new
+		let ingedientList = new IngedientList()
 		mainContet.append(ingedientList.getJQueryRepresentation());
 		
 	}
