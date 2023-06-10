@@ -5,7 +5,7 @@ import $ from "jquery";
 class IngedientList extends SortableListTable{
 	constructor(config) {
 		super(config);
-		scope = this;
+		let scope = this;
 		Ingredient.loadAll(function(ingredients){
 				scope.pushAll(ingredients);
 			});
