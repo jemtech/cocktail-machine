@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 class Objects{
 	static save(entry, callback, endpoint){
 		endpoint = Objects.rootURL + endpoint;
