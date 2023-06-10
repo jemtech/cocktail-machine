@@ -5,7 +5,7 @@ class TableRow extends UiElement {
 	constructor(config) {
 		super(config);
 		this.baseElement = $('<tr></tr>');
-		super.setBaseJQueryObject(this.baseDiv);
+		super.setBaseJQueryObject(this.baseElement);
 	}
 	
 	
