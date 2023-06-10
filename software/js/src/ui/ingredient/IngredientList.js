@@ -1,5 +1,6 @@
 import SortableListTable from "../table/SortableListTable"
 import Ingredient from "../../objects/Ingredient"
+import $ from "jquery";
 
 class IngedientList extends SortableListTable{
 	constructor(config) {

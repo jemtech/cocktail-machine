@@ -1,4 +1,6 @@
-class TableRow {
+import $ from "jquery";
+
+class TableRow extends UiElement {
 	constructor(config) {
 		super(config);
 		this.baseElement = $('<tr></tr>');
