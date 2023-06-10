@@ -41,7 +41,7 @@ class IngredientDB:
             
     def loadById(self, id):
         query = "SELECT id, name FROM ingredient Where id=%s"
-        DBConnection.query(query, (sensorId,), self.__handleIngredients)
+        DBConnection.query(query, (id,), self.__handleIngredients)
         if len(self.ingredients) < 1:
             return
         return self.ingredients[0]
