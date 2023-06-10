@@ -12,6 +12,7 @@ class Ingredient {
 			let ingredients = [];
 			for (let i = 0; i < arrayLength; i++) {
 				let ingredient = new Ingredient(data[i]);
+				console.log(ingredient);
 				ingredients.push(ingredient);
 			}
 			callback(ingredients);

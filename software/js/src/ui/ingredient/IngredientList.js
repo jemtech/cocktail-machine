@@ -7,11 +7,13 @@ class IngedientList extends SortableListTable{
 		super(config);
 		let scope = this;
 		Ingredient.loadAll(function(ingredients){
+				console.log(ingredients);
 				scope.pushAll(ingredients);
 			});
 	}
 	
 	renderRow(ingredient, row) {
+		console.log(ingredient);
 		row.append($('<td>' + ingredient.name +'</td>'))
 	}
 	
