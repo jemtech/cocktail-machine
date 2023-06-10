@@ -1,5 +1,6 @@
 import Misc from "./Misc"
-import IngedientList from "./ingredient/IngredientList"
+import IngredientUi from "./ingredient/IngredientUi"
+import RecipeUi from "./recipe/RecipeUi"
 
 class LandingPage {
 	
@@ -9,10 +10,10 @@ class LandingPage {
 	
 	render(){
 		let mainContet = Misc.getMainContent();
-		mainContet.append("Hello");
-		let ingedientList = new IngedientList()
-		mainContet.append(ingedientList.getJQueryRepresentation());
-		
+		let recipeUi = new RecipeUi()
+		mainContet.append(recipeUi.getJQueryRepresentation());
+		let ingedientUi = new IngredientUi()
+		mainContet.append(ingedientUi.getJQueryRepresentation());
 	}
 }
 export default LandingPage;
