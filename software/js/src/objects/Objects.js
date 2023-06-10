@@ -1,4 +1,5 @@
 import $ from "jquery";
+import Misc from "../ui/Misc"
 
 class Objects{
 	static save(entry, callback, endpoint){
@@ -16,7 +17,7 @@ class Objects{
 			},
 			error: function(jqXHR, textStatus, errorThrown ) {
 				if(jqXHR.status != 401){
-					UI.addToError(jqXHR.responseText);
+					Misc.addToError(jqXHR.responseText);
 				}
 			}
 		});
@@ -41,7 +42,7 @@ class Objects{
 			},
 			error: function(jqXHR, textStatus, errorThrown ) {
 				if(jqXHR.status != 401){
-					UI.addToError(jqXHR.responseText);
+					Misc.addToError(jqXHR.responseText);
 				}
 				if (scope) {
 					if (scope.errorCallBack) {
@@ -68,7 +69,7 @@ class Objects{
 			},
 			error: function(jqXHR, textStatus, errorThrown ) {
 				if(jqXHR.status != 401){
-					UI.addToError(jqXHR.responseText);
+					Misc.addToError(jqXHR.responseText);
 				}
 				if(errorHandler){
 					errorHandler();
@@ -89,7 +90,7 @@ class Objects{
 			},
 			error: function(jqXHR, textStatus, errorThrown ) {
 				if(jqXHR.status != 401){
-					UI.addToError(jqXHR.responseText);
+					Misc.addToError(jqXHR.responseText);
 				}
 			}
 		});
