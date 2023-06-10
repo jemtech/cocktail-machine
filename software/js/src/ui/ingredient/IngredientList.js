@@ -5,8 +5,9 @@ import $ from "jquery";
 class IngedientList extends SortableListTable{
 	constructor(config) {
 		super(config);
+		scope = this;
 		Ingredient.loadAll(function(ingredients){
-				this.pushAll(ingredients);
+				scope.pushAll(ingredients);
 			});
 	}
 	
