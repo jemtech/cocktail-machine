@@ -15,8 +15,8 @@ class IngedientList extends SortableListTable{
 		row.append($('<td>' + ingredient.name +'</td>'))
 	}
 	
-	renderHead() {
-		this.header.append($('<th>Name</th>'))
+	renderHeaderRow(headerRow) {
+		headerRow.append($('<th>Name</th>'))
 	}
 }
 export default IngedientList

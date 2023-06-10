@@ -6,16 +6,13 @@ class SortableListTable extends UiElement {
 	constructor(config) {
 		super(config);
 		this.baseElement = $('<table></table>');
-		super.setBaseJQueryObject(this.baseDiv);
+		super.setBaseJQueryObject(this.baseElement);
 		this.rowDatas = new SortableList();
 	}
 	
 	renderEmpty() {
 		this.clear();
-		this.header = $('<thead></thead>');
-		this.baseElement.append(this.header);
-		this.headerRow = $('<tr></tr>');
-		this.header.append(this.headerRow);
+		this.renderHeader()
 		this.body = $('<tbody></tbody>');
 		this.baseElement.append(this.body);
 	}
@@ -56,8 +53,16 @@ class SortableListTable extends UiElement {
 		throw new Error("please override renderRow(entry)");
 	}
 	
-	renderHead() {
-		throw new Error("please override renderHead()");
+	renderHeader() {
+		this.header = $('<thead></thead>');
+		this.baseElement.append(this.header);
+		this.headerRow = $('<tr></tr>');
+		this.renderHeaderRow(this.headerRow);
+		this.header.append(this.headerRow);
+	}
+	
+	renderHeaderRow(headerRow) {
+		throw new Error("please override renderHeaderRow(headerRow)");
 	}
 	
 	newRow(){
