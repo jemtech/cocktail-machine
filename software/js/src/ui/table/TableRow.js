@@ -1,4 +1,5 @@
 import $ from "jquery";
+import UiElement from "../UiElement";
 
 class TableRow extends UiElement {
 	constructor(config) {
