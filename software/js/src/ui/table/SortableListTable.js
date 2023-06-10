@@ -1,5 +1,6 @@
 import SortableList from "../../misc/SortableList";
 import UiElement from "../UiElement";
+import TableRow from "./TableRow"
 import $ from "jquery";
 
 class SortableListTable extends UiElement {
