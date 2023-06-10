@@ -17,6 +17,12 @@ class Ingredient {
 			callback(ingredients);
 		}, Ingredient.API_ENDPOINT);
 	}
+	
+	insert() {
+		Objects.save(this, function(data){
+			Object.assign(this, data)
+		}, Ingredient.API_ENDPOINT)
+	}
 }
 Ingredient.API_ENDPOINT = "ingredient";
 export default Ingredient;
