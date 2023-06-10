@@ -6,6 +6,7 @@ class RecipeUi extends UiElement {
 	constructor(config) {
 		super(config);
 		this.baseElement = $('<div></div>');
+		super.setBaseJQueryObject(this.baseElement);
 		this.baseElement.append($('<h2>Recipes</h2>'));
 		this.recipeList = new RecipeList();
 		this.baseElement.append(this.recipeList.getJQueryRepresentation());
