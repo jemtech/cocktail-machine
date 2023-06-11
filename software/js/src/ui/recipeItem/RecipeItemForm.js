@@ -48,7 +48,7 @@ class RecipeItemForm extends UiElement {
 		this.saveButton.click(function(event){
 			if (scope.recipeItem == null) {
 				scope.recipeItem = new RecipeItem();
-				scope.recipeItem.recipe = this.recipeId;
+				scope.recipeItem.recipe = scope.recipeId;
 			}
 			
 			scope.recipeItem.ingredient = parseInt(scope.ingredientSelect.val());
