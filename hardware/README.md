@@ -1,5 +1,5 @@
 # Hardware
-##pump housing
+## pump housing
 The pump housing is 3d printable an contains 4 pumps and its driver.
 [latest stl file](/peristaltic_pump_g528/g528_mount-Fusion008 (Solid).stl)
 ## other hardware
