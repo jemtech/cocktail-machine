@@ -22,7 +22,7 @@ class PumpMapping {
 	
 	save(callback){
 		let scope = this;
-		Objects.post(this, function(pumpMapping){
+		Objects.put(this, function(pumpMapping){
 			pumpMapping && Object.assign(scope, pumpMapping);
 			callback(scope);
 		}, PumpMapping.API_ENDPOINT);
