@@ -48,8 +48,8 @@ class PumpMappingForm extends UiElement {
 			}
 			
 			
-			scope.pumpMapping.pumpId = scope.pumpSelect.val();
-			scope.pumpMapping.ingredientId = scope.ingredientSelect.val();
+			scope.pumpMapping.pumpId = parseInt(scope.pumpSelect.val());
+			scope.pumpMapping.ingredientId = parseInt(scope.ingredientSelect.val());
 			
 			scope.pumpMapping.save(function(pumpMapping){
 				let event = new EVAEvent({
