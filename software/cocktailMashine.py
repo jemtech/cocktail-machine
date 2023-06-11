@@ -46,3 +46,13 @@ def pump_mappings():
         pumpMapping = {'pumpId': ingredientsPumpDic[ingredientId], 'ingredientId': ingredientId}
         pumpMappings.append(pump)
     return pumpMappings
+
+from ingredient import Ingredient 
+def map_pump(ingredientId, pumpId):
+    cocktailMashine = getCocktailMashineSigelton()
+    pump = cocktailMashine.pumps[pumpId]
+    ingredient = Ingredient.queryById(ingredientId)
+    cocktailMashine.mapIngredient(ingredient, pump)
+    
+    
+    

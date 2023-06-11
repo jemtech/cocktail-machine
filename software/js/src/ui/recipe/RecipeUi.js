@@ -5,7 +5,7 @@ import $ from "jquery";
 class RecipeUi extends UiElement {
 	constructor(config) {
 		super(config);
-		this.baseElement = $('<div></div>');
+		this.baseElement = $('<div class="container"></div>');
 		super.setBaseJQueryObject(this.baseElement);
 		this.baseElement.append($('<h2>Recipes</h2>'));
 		this.recipeList = new RecipeList();

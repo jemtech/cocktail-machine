@@ -147,3 +147,32 @@ paths:
                   type: "integer"
                 ingredientId:
                   type: "integer"
+    put:
+      operationId: "cocktailMashine.map_pump"
+      tags:
+        - Pump mapping
+      description: "insert a pump mapping"
+      parameters:
+        - in: body
+          name: ingredientId
+          description: The ingredient to map.
+          schema:
+            properties:
+              id:
+                type: "integer"
+        - in: body
+          name: pumpId
+          description: The pump to map.
+          schema:
+            properties:
+              id:
+                type: "integer"
+      responses:
+        200:
+          description: "Successful set pump mapping operation"
+          schema:
+            properties:
+                pumpId:
+                  type: "integer"
+                ingredientId:
+                  type: "integer"
