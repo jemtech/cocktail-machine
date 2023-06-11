@@ -5,4 +5,5 @@ class Event {
 	
 }
 Event.TYPE_SAVE = 'saved'
+Event.RECIPE_PREPARED = 'recipe repared'
 export default Event;
