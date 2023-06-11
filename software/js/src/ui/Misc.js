@@ -15,7 +15,7 @@ class Misc{
 		if(! infoDiv.length){
 			var mainContent = $('.main_content');
 			if(mainContent.length){
-				mainContent.prepend('<div id="info_div" class="info_box"></div>');
+				mainContent.prepend('<div id="info_div" class="alert alert-info" role="alert"></div>');
 				infoDiv = $('#info_div');
 			}else{
 				console.log('main_contet not found');
@@ -44,7 +44,7 @@ class Misc{
 		if(! errorDiv.length){
 			var mainContent = $('.main_content');
 			if(mainContent.length){
-				mainContent.prepend('<div id="error_div" class="error_box"></div>');
+				mainContent.prepend('<div id="error_div" class="alert alert-danger" role="alert"></div>');
 				errorDiv = $('#error_div');
 			}else{
 				console.log('main_contet not found');

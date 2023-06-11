@@ -1,6 +1,8 @@
 import UiElement from "../UiElement";
 import Ingredient from "../../objects/Ingredient"
 import Pump from "../../objects/Pump"
+import PumpMapping from "../../objects/PumpMapping"
+import Select from "../inputs/Select"
 import $ from "jquery";
 
 class PumpMappingForm extends UiElement {
@@ -27,34 +29,50 @@ class PumpMappingForm extends UiElement {
 			
 		this.renderPumpSelect();
 		this.renderIngredientSelect();
+		this.renderSaveButton();
+	}
+	
+	renderSaveButton(){
 		this.saveButton = $('<button type="submit" class="btn btn-primary mb-3">Save</button>')
 		this.baseElement.append(this.saveButton);
+		let scope = this;
+		this.saveButton.click(function(event){
+			if (scope.pumpMapping == null) {
+				scope.pumpMapping = new PumpMapping();
+			}
+			
+			
+			scope.pumpMapping.pumpId = scope.pumpSelect.val();
+			scope.pumpMapping.ingredientId = scope.ingredientSelect.val();
+			
+			scope.pumpMapping.save(function(pumpMapping){
+				let event = new EVAEvent({
+					type: EVAEvent.TYPE_SAVE,
+					data: pumpMapping
+				});
+				scope.notify(event);
+			});
+		});
 	}
 	
 	renderPumpSelect(){
-		this.pumpSelect = $('<div class="mb-3"></div>');
-		this.baseElement.append(this.pumpSelect);
-		this.pumpSelect.append($('<label for="pumpSelectInput1" class="form-label">Pump</label>'));
-		this.pumpSelect.append($('<select class="form-select" aria-label="select pump">'));
+		this.pumpSelect = new Select({labelText: 'Pump'});
+		this.baseElement.append(this.pumpSelect.getJQueryRepresentation());
 		let arrayLength = this.pumps.length;
 		for (let i = 0; i < arrayLength; i++) {
 			let pump = this.pumps[i];
-			this.pumpSelect.append($('<option value="' + pump.id + '">' + pump.id + '</option>'));
+			this.pumpSelect.addSelectItem(pump.id, pump.id);
 		}
-		
 	}
 	
 	renderIngredientSelect(){
-		this.pumpSelect = $('<div class="mb-3"></div>');
-		this.baseElement.append(this.pumpSelect);
-		this.pumpSelect.append($('<label for="pumpSelectInput1" class="form-label">Pump</label>'));
-		this.pumpSelect.append($('<select class="form-select" aria-label="select pump">'));
+		this.ingredientSelect = new Select({labelText: 'Ingredient'});
+		this.baseElement.append(this.ingredientSelect.getJQueryRepresentation());
 		let arrayLength = this.ingredients.length;
 		for (let i = 0; i < arrayLength; i++) {
 			let ingredient = this.ingredients[i];
-			this.pumpSelect.append($('<option value="' + ingredient.id + '">' + ingredient.name + '</option>'));
+			this.ingredientSelect.addSelectItem(ingredient.id, ingredient.name);
 		}
-		
 	}
 }
 export default PumpMappingForm;

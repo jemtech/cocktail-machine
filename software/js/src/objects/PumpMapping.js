@@ -20,6 +20,14 @@ class PumpMapping {
 		}, PumpMapping.API_ENDPOINT);
 	}
 	
+	save(callback){
+		let scope = this;
+		Objects.post(this, function(pumpMapping){
+			pumpMapping && Object.assign(scope, pumpMapping);
+			callback(scope);
+		}, PumpMapping.API_ENDPOINT);
+	}
+	
 	getIngedient(){
 		if(this.ingredient == null){
 			let scope = this;

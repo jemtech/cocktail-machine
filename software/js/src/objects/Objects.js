@@ -2,7 +2,7 @@ import $ from "jquery";
 import Misc from "../ui/Misc"
 
 class Objects{
-	static save(entry, callback, endpoint){
+	static save(entry, callback, endpoint, errorCallBack){
 		endpoint = Objects.rootURL + endpoint;
 		$.ajax({   
 			type: "PUT",
@@ -19,11 +19,38 @@ class Objects{
 				if(jqXHR.status != 401){
 					Misc.addToError(jqXHR.responseText);
 				}
+				if (errorCallBack) {
+					errorCallBack(jqXHR.responseText)
+				}
 			}
 		});
 	}
 	
-	static post(entry, callback, endpoint, scope){
+	static put(entry, callback, endpoint, errorCallBack){
+		endpoint = Objects.rootURL + endpoint;
+		$.ajax({   
+			type: "PUT",
+			url: endpoint,
+			data: JSON.stringify(entry),
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
+			success: function(data) {
+				if(callback){
+					callback(data);
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown ) {
+				if(jqXHR.status != 401){
+					Misc.addToError(jqXHR.responseText);
+				}
+				if (errorCallBack) {
+					errorCallBack(jqXHR.responseText)
+				}
+			}
+		});
+	}
+	
+	static post(entry, callback, endpoint, errorCallBack){
 		endpoint = Objects.rootURL + endpoint;
 		$.ajax({   
 			type: "POST",
@@ -33,27 +60,21 @@ class Objects{
 			contentType: "application/json; charset=utf-8",
 			success: function(data) {
 				if(callback){
-					if (scope) {
-						callback.call(scope, data);
-					} else {
-						callback(data);
-					}
+					callback(data);
 				}
 			},
 			error: function(jqXHR, textStatus, errorThrown ) {
 				if(jqXHR.status != 401){
 					Misc.addToError(jqXHR.responseText);
 				}
-				if (scope) {
-					if (scope.errorCallBack) {
-						scope.errorCallBack();
-					}
+				if (errorCallBack) {
+					errorCallBack(jqXHR.responseText)
 				}
 			}
 		});
 	}
 	
-	static load(callback, endpoint, async, errorHandler){
+	static load(callback, endpoint, async, errorCallBack){
 		if (async == null) {
 			async = true;
 		}
@@ -71,14 +92,14 @@ class Objects{
 				if(jqXHR.status != 401){
 					Misc.addToError(jqXHR.responseText);
 				}
-				if(errorHandler){
-					errorHandler();
+				if (errorCallBack) {
+					errorCallBack(jqXHR.responseText)
 				}
 			}
 		});
 	}
 	
-	static remove(callback, endpoint){
+	static remove(callback, endpoint, errorCallBack){
 		endpoint = Objects.rootURL + endpoint;
 		$.ajax({
 			type: "DELETE",  
@@ -91,6 +112,9 @@ class Objects{
 			error: function(jqXHR, textStatus, errorThrown ) {
 				if(jqXHR.status != 401){
 					Misc.addToError(jqXHR.responseText);
+				}
+				if (errorCallBack) {
+					errorCallBack(jqXHR.responseText)
 				}
 			}
 		});
