@@ -21,7 +21,7 @@ class PumpMappingForm extends UiElement {
 				scope.pumpSelect.clearItems();
 				let arrayLength = pumps.length;
 				for (let i = 0; i < arrayLength; i++) {
-					pump = pumps[i];
+					let pump = pumps[i];
 					scope.pumps.push(pump);
 					scope.pumpSelect.addSelectItem(pump.id, pump.id);
 				}
@@ -31,7 +31,7 @@ class PumpMappingForm extends UiElement {
 				scope.ingredientSelect.clearItems();
 				let arrayLength = ingredients.length;
 				for (let i = 0; i < arrayLength; i++) {
-					ingredient = ingredients[i];
+					let ingredient = ingredients[i];
 					scope.ingredients.push(ingredient);
 					scope.ingredientSelect.addSelectItem(ingredient.id, ingredient.name);
 				}
