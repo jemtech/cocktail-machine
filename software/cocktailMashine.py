@@ -64,7 +64,7 @@ from recipe import Recipe
 def prepare(recipe):
     cocktailMashine = getCocktailMashineSigelton()
     recipe = Recipe.queryById(recipe['id'])
-    return cocktailMashine.executeRecipe(recipe)
+    return cocktailMashine.executeRecipe(recipe).toHash()
     
     
     

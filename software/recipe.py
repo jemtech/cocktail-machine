@@ -14,6 +14,12 @@ class Recipe(object):
     
     def recipeItems(self):
         return RecipeItem.queryAll(self.id)
+    
+    def toHash(self):
+        return {
+                'id': self.id,
+                'name': self.name
+                }
 
 class RecipeDB:
     
