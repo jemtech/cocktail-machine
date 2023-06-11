@@ -30,6 +30,7 @@ paths:
         200:
           description: "Successful preparing Recipe operation"
           schema:
+            type: object
             properties:
               id:
                 type: "integer"
@@ -61,6 +62,7 @@ paths:
           name: Recipe
           description: The Recipe to insert.
           schema:
+            type: object
             properties:
                 id:
                   type: "integer"
@@ -70,6 +72,7 @@ paths:
         200:
           description: "Successful insert Recipe operation"
           schema:
+            type: object
             properties:
               id:
                 type: "integer"
@@ -110,6 +113,7 @@ paths:
           name: Recipe
           description: The recipe item to insert.
           schema:
+            type: object
             properties:
                 ingredient:
                   type: "integer"
@@ -155,6 +159,7 @@ paths:
           name: ingredient
           description: The ingredient to insert.
           schema:
+            type: object
             properties:
               name:
                 type: "string"
@@ -184,6 +189,7 @@ paths:
         200:
           description: Successfully read ingredient from db operation
           schema:
+            type: object
             properties:
                 id:
                   type: "integer"
