@@ -44,12 +44,8 @@ def ingredientsLoop():
     ingredientsLoop()
     
 import os
-
-# if we run as SERVICE we do not want to exec code after this
-if(os.environ.get('SERVICE') == true):
-    return true
-
 def mainLoop():
+    # if we run as SERVICE we do not want to exec code after this
     if(os.environ.get('SERVICE') == true):
         return true
     try:
