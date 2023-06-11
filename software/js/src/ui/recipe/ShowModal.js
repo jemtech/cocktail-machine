@@ -62,7 +62,9 @@ class ShowModal extends UiElement {
 	
 	setRecipe(recipe){
 		this.recipe = recipe;
-		this.nameInputInput.text(this.recipe.name);
+		if(this.modalTitel){
+			this.modalTitel.text(this.recipe.name);
+		}
 	}
 }
 export default ShowModal;
