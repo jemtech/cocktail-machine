@@ -74,9 +74,9 @@ class RecipeItemForm extends UiElement {
 		this.mlInputDiv = $('<div class="input-group mb-3">');
 		this.baseElement.append(this.mlInputDiv);
 		this.mlInputInput = $('<input type="text" class="form-control" placeholder="ml">');
-		this.nameInputDiv.append(this.mlInputInput);
+		this.mlInputDiv.append(this.mlInputInput);
 		let addon = $('<span class="input-group-text" id="basic-addon2">ml</span>');
-		this.nameInputDiv.append(addon);
+		this.mlInputDiv.append(addon);
 		if(this.recipeItem){
 			this.mlInputInput.text(this.recipeItem.ml);
 		}
