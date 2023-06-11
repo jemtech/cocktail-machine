@@ -12,8 +12,8 @@ class CocktailMashine:
     def mapIngredient(self, ingredient, pump):
         self.ingredientsPumpDic[ingredient.id] = pump
         
-    def pumpIngredient(self, ingredient, ml):
-        pump = self.ingredientsPumpDic.get(ingredient.id)
+    def pumpIngredient(self, ingredientId, ml):
+        pump = self.ingredientsPumpDic.get(ingredient)
         pump.pump(ml)
         
     def executeRecipe(self, recipe):
