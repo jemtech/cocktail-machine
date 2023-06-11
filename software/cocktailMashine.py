@@ -14,6 +14,8 @@ class CocktailMashine:
         
     def pumpIngredient(self, ingredientId, ml):
         pump = self.ingredientsPumpDic.get(ingredientId)
+        if pump is None:
+            return
         pump.pump(ml)
         
     def executeRecipe(self, recipe):
