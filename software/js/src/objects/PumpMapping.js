@@ -28,7 +28,7 @@ class PumpMapping {
 		}, PumpMapping.API_ENDPOINT);
 	}
 	
-	getIngedient(){
+	getIngredient(){
 		if(this.ingredient == null){
 			let scope = this;
 			Ingredient.loadById(function(ingredient){
