@@ -13,8 +13,8 @@ class PumpMapping {
 			let arrayLength = data.length;
 			let pumpMappings = [];
 			for (let i = 0; i < arrayLength; i++) {
-				let pump = new PumpMapping(data[i]);
-				pumpMappings.push(pump);
+				let pumpMapping = new PumpMapping(data[i]);
+				pumpMappings.push(pumpMapping);
 			}
 			callback(pumpMappings);
 		}, PumpMapping.API_ENDPOINT);
@@ -37,5 +37,5 @@ class PumpMapping {
 	}
 	
 }
-Pump.API_ENDPOINT = "pump_mapping"
+PumpMapping.API_ENDPOINT = "pump_mapping"
 export default PumpMapping;

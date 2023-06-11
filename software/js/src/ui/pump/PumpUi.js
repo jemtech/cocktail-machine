@@ -12,4 +12,4 @@ class PumpUi extends UiElement {
 		this.baseElement.append(this.pumpList.getJQueryRepresentation());
 	}
 }
-export default IngedientUi;
+export default PumpUi;
