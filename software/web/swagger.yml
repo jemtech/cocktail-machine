@@ -154,23 +154,20 @@ paths:
       description: "insert a pump mapping"
       parameters:
         - in: body
-          name: ingredientId
-          description: The ingredient to map.
+          name: mapping
+          description: The mapping.
           schema:
+            type: object
             properties:
-              id:
+              ingredientId:
                 type: "integer"
-        - in: body
-          name: pumpId
-          description: The pump to map.
-          schema:
-            properties:
-              id:
+              pumpId:
                 type: "integer"
       responses:
         200:
           description: "Successful set pump mapping operation"
           schema:
+            type: object
             properties:
                 pumpId:
                   type: "integer"

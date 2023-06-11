@@ -48,10 +48,10 @@ def pump_mappings():
     return pumpMappings
 
 from ingredient import Ingredient 
-def map_pump(ingredientId, pumpId):
+def map_pump(mapping):
     cocktailMashine = getCocktailMashineSigelton()
-    pump = cocktailMashine.pumps[pumpId]
-    ingredient = Ingredient.queryById(ingredientId)
+    pump = cocktailMashine.pumps[mapping['pumpId']]
+    ingredient = Ingredient.queryById(mapping['ingredientId'])
     cocktailMashine.mapIngredient(ingredient, pump)
     
     
