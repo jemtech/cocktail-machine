@@ -40,7 +40,7 @@ class RecipeItemDB:
     def insert(self, recipeItem):
         data = (recipeItem['ingredient'], recipeItem['recipe'], recipeItem['ml'])
         DBConnection.dbAction("INSERT INTO recipeItem (ingredient, recipe, ml) VALUES (%s,%s,%s) RETURNING id,name", data, self.__handleRecipeItems, commit = True)
-        return self.recipes[0]
+        return self.recipeItems[0]
 
 
 def read_all(recipeId):
