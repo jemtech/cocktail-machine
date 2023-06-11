@@ -36,12 +36,6 @@ class ShowModal extends UiElement {
 		});
 		this.modalFooter.append(this.modalFooterClose);
 		this.renderPrepRecipeButton();
-		
-		
-		this.baseElement.append($('<h2>Recipes</h2>'));
-		this.recipeList = new RecipeList();
-		this.append(this.recipeList);
-		this.renderNewRecipeButton();
 	}
 	
 	renderPrepRecipeButton(){
