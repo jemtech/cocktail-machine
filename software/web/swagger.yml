@@ -20,7 +20,7 @@ paths:
       description: "Prepare a recipe"
       parameters:
         - in: body
-          name: Recipe
+          name: recipe
           description: The Recipe to recipe.
           schema:
             properties:
@@ -59,7 +59,7 @@ paths:
       description: "insert a recipe"
       parameters:
         - in: body
-          name: Recipe
+          name: recipe
           description: The Recipe to insert.
           schema:
             type: object
@@ -106,11 +106,11 @@ paths:
     put:
       operationId: "recipeItem.insert"
       tags:
-        - Recipe
+        - RecipeItem
       description: "insert a recipeItem"
       parameters:
         - in: body
-          name: Recipe
+          name: recipeItem
           description: The recipe item to insert.
           schema:
             type: object

@@ -41,8 +41,8 @@ class RecipeDB:
             return
         return self.recipes[0]
     
-    def insert(self, my_recipe):
-        data = (my_recipe['name'],)
+    def insert(self, recipe):
+        data = (recipe['name'],)
         DBConnection.dbAction("INSERT INTO recipe (name) VALUES (%s) RETURNING id,name", data, self.__handleIngredients, commit = True)
         return self.recipes[0]
         
@@ -50,7 +50,7 @@ class RecipeDB:
 def read_all():
     return RecipeDB().loadAll()
 
-def insert(my_recipe):
-    return RecipeDB().insert(my_recipe)
+def insert(recipe):
+    return RecipeDB().insert(recipe)
     
     
