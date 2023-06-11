@@ -39,7 +39,7 @@ class RecipeItemDB:
     
     def insert(self, recipeItem):
         data = (recipeItem['ingredient'], recipeItem['recipe'], recipeItem['ml'])
-        DBConnection.dbAction("INSERT INTO recipeItem (ingredient, recipe, ml) VALUES (%s,%s,%s) RETURNING id,name", data, self.__handleRecipeItems, commit = True)
+        DBConnection.dbAction("INSERT INTO recipeItem (ingredient, recipe, ml) VALUES (%s,%s,%s) RETURNING ingredient, recipe, ml", data, self.__handleRecipeItems, commit = True)
         return self.recipeItems[0]
 
 
