@@ -18,6 +18,13 @@ class Ingredient {
 		}, Ingredient.API_ENDPOINT);
 	}
 	
+	static loadById(callback, id){
+		Objects.load(function(data){
+			let ingredient = new Ingredient(data)
+			callback(ingredient);
+		}, Ingredient.API_ENDPOINT + '/' + id);
+	}
+	
 	insert() {
 		Objects.save(this, function(data){
 			Object.assign(this, data)
