@@ -18,6 +18,22 @@ class Recipe {
 		}, Recipe.API_ENDPOINT);
 	}
 	
+	save(callback){
+		let scope = this;
+		Objects.post(this, function(recipe){
+			recipe && Object.assign(scope, recipe);
+			callback(scope);
+		}, Recipe.API_ENDPOINT);
+	}
+	
+	prepare(callback){
+		let scope = this;
+		Objects.post(this, function(data){
+			// TODO may retunred a queue
+			callback(scope);
+		}, Recipe.API_ENDPOINT + '/' + this.id + '/prepare');
+	}
+	
 	insert() {
 		Objects.save(this, function(data){
 			Object.assign(this, data)

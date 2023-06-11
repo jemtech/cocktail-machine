@@ -24,6 +24,8 @@
 - CREATE TABLE recipe (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), PRIMARY KEY (id));
 - CREATE TABLE ingredient (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), PRIMARY KEY (id));
 - CREATE TABLE recipeItem (ingredient BIGINT NOT NULL, recipe BIGINT NOT NULL, ml DOUBLE, INDEX (recipe), INDEX (ingredient));
+- ALTER TABLE recipeItem ADD FOREIGN KEY (recipe) REFERENCES recipe(id) ON DELETE CASCADE;
+- ALTER TABLE recipeItem ADD FOREIGN KEY (ingredient) REFERENCES ingredient(id) ON DELETE CASCADE;
 
 ## nginx config
 
