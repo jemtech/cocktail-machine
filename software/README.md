@@ -55,3 +55,6 @@ If you want the server to boot on start copy [cocktail.service](cocktail.service
 sudo cp cocktail.service /etc/systemd/system/
 sudo systemctl enable cocktail.service
 ```
+
+## run as access point
+https://raspberrypi.stackexchange.com/questions/89803/access-point-as-wifi-router-repeater-optional-with-bridge
