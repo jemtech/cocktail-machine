@@ -1,4 +1,5 @@
 import Observable from "../misc/Observable.js";
+import Misc from "./Misc"
 
 class UiElement extends Observable{
 	constructor(config) {

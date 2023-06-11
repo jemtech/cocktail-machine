@@ -26,7 +26,7 @@ class RecipeList extends SortableListTable{
 		let scope = this;
 		showButton.click(function(event){
 			let showModal = new ShowModal({recipe: recipe});
-			scope.append(showModal);
+			showModal.appendToUi();
 		});
 		return showButton;
 	}
