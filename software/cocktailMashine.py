@@ -13,7 +13,7 @@ class CocktailMashine:
         self.ingredientsPumpDic[ingredient.id] = pump
         
     def pumpIngredient(self, ingredientId, ml):
-        pump = self.ingredientsPumpDic.get(ingredient)
+        pump = self.ingredientsPumpDic.get(ingredientId)
         pump.pump(ml)
         
     def executeRecipe(self, recipe):
