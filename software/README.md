@@ -50,4 +50,8 @@ nohup python ./main.py &
 ```
 
 ## on boot
-If you want the server to boot on start copy [cocktail.service](cocktail.service) to /etc/systemd/system
+If you want the server to boot on start copy [cocktail.service](cocktail.service) to /etc/systemd/system and enable the script.
+```
+sudo cp cocktail.service /etc/systemd/system/
+sudo systemctl enable cocktail.service
+```

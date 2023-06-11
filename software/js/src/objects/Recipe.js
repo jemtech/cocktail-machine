@@ -33,8 +33,9 @@ class Recipe {
 		Objects.post(this, function(data){
 			// TODO may retunred a queue
 			callback(scope);
-		}, Recipe.API_ENDPOINT + '/' + this.id + '/prepare');
+		}, Recipe.PREPARE_API_ENDPOINT);
 	}
 }
 Recipe.API_ENDPOINT = "recipe";
+Recipe.PREPARE_API_ENDPOINT = "prepare";
 export default Recipe;

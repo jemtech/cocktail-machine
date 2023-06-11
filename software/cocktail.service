@@ -5,6 +5,7 @@ Description=Cocktail-Machine
 After=network.target
 
 [Service]
+User=pi
 WorkingDirectory=/home/pi/cocktail-machine/software/
 ExecStart=python ./main.py
 

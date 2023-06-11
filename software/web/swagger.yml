@@ -23,6 +23,7 @@ paths:
           name: recipe
           description: The Recipe to recipe.
           schema:
+            type: object
             properties:
                 id:
                   type: "integer"
