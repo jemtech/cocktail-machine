@@ -20,7 +20,7 @@ class RecipeDB:
     def __handleRecipes(self, cursor):
         self.recipes = []
         for id, name in cursor:
-            recepy = {
+            recipe = {
                 'id': id,
                 'name': name
                 }
@@ -43,7 +43,7 @@ class RecipeDB:
     
     def insert(self, recipe):
         data = (recipe['name'],)
-        DBConnection.dbAction("INSERT INTO recipe (name) VALUES (%s) RETURNING id,name", data, self.__handleIngredients, commit = True)
+        DBConnection.dbAction("INSERT INTO recipe (name) VALUES (%s) RETURNING id,name", data, self.__handleRecipes, commit = True)
         return self.recipes[0]
         
 
