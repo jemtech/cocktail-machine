@@ -12,16 +12,21 @@ class RecipeItemForm extends UiElement {
 		super.setBaseJQueryObject(this.baseElement);
 		if (config) {
 			if (config.recipeId) {
-				this.recipeId = config.recipeId;
+				this.setRecipeId(config.recipeId);
 			}
 			if (config.recipeItem) {
 				this.setRecipeItem(config.recipeItem);
+			}
+			if(config.remoteSave) {
+				this.remoteSave = config.remoteSave;
 			}
 		}
 		
 		this.renderIngredientSelect();
 		this.rendeMlInput();
-		this.renderSaveButton();
+		if(!this.remoteSave) {
+			this.renderSaveButton();
+		}
 		
 		let scope = this;
 		this.ingredients = [];
@@ -36,43 +41,56 @@ class RecipeItemForm extends UiElement {
 			});
 	}
 	
+	setRecipeId(recipeId){
+		this.recipeId = recipeId;
+	}
+	
 	setRecipeItem(recipeItem){
 		this.recipeItem = recipeItem;
-		this.recipeId = this.recipeItem.recipe;
+		this.setRecipeId(this.recipeItem.recipe);
 	}
 	
 	renderSaveButton(){
 		this.saveButton = $('<button type="submit" class="btn btn-primary mb-3">Save</button>')
-		this.baseElement.append(this.saveButton);
+		this.append(this.saveButton);
 		let scope = this;
 		this.saveButton.click(function(event){
-			if (scope.recipeItem == null) {
-				scope.recipeItem = new RecipeItem();
-				scope.recipeItem.recipe = scope.recipeId;
-			}
-			
-			scope.recipeItem.ingredient = parseInt(scope.ingredientSelect.val());
-			scope.recipeItem.ml = parseFloat(scope.mlInputInput.val())
-			
-			scope.recipeItem.save(function(recipeItem){
-				scope.setRecipeItem(recipeItem)
-				let event = new Event({
-					type: Event.TYPE_SAVE,
-					data: recipeItem
-				});
-				scope.notify(event);
-			});
+			scope.save();
 		});
+	}
+	
+	save(){
+		if (this.recipeItem == null) {
+			this.recipeItem = new RecipeItem();
+			this.recipeItem.recipe = this.recipeId;
+		}
+		
+		this.recipeItem.ingredient = parseInt(this.ingredientSelect.val());
+		this.recipeItem.ml = parseFloat(this.mlInputInput.val())
+		if(this.recipeItem.ml == '' || this.recipeItem.ml == null){
+			console.log('recipeItem has no ml. Not saved!');
+			return;
+		}
+		let scope = this;
+		this.recipeItem.save(function(recipeItem){
+			scope.setRecipeItem(recipeItem)
+			let event = new Event({
+				type: Event.TYPE_SAVE,
+				data: recipeItem
+			});
+			scope.notify(event);
+		});
+		
 	}
 	
 	renderIngredientSelect(){
 		this.ingredientSelect = new Select({labelText: 'Ingredient'});
-		this.baseElement.append(this.ingredientSelect.getJQueryRepresentation());
+		this.append(this.ingredientSelect);
 	}
 	
 	rendeMlInput(){
 		this.mlInputDiv = $('<div class="input-group mb-3">');
-		this.baseElement.append(this.mlInputDiv);
+		this.append(this.mlInputDiv);
 		this.mlInputInput = $('<input type="text" class="form-control" placeholder="ml">');
 		this.mlInputDiv.append(this.mlInputInput);
 		let addon = $('<span class="input-group-text" id="basic-addon2">ml</span>');

@@ -41,7 +41,7 @@ class PumpMappingForm extends UiElement {
 	
 	renderSaveButton(){
 		this.saveButton = $('<button type="submit" class="btn btn-primary mb-3">Save</button>')
-		this.baseElement.append(this.saveButton);
+		this.append(this.saveButton);
 		let scope = this;
 		this.saveButton.click(function(event){
 			if (scope.pumpMapping == null) {
@@ -64,12 +64,12 @@ class PumpMappingForm extends UiElement {
 	
 	renderPumpSelect(){
 		this.pumpSelect = new Select({labelText: 'Pump'});
-		this.baseElement.append(this.pumpSelect.getJQueryRepresentation());
+		this.append(this.pumpSelect);
 	}
 	
 	renderIngredientSelect(){
 		this.ingredientSelect = new Select({labelText: 'Ingredient'});
-		this.baseElement.append(this.ingredientSelect.getJQueryRepresentation());
+		this.append(this.ingredientSelect);
 	}
 }
 export default PumpMappingForm;

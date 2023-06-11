@@ -10,9 +10,9 @@ class PumpMappingUi extends UiElement {
 		super.setBaseJQueryObject(this.baseElement);
 		this.baseElement.append($('<h2>Pump mappings</h2>'));
 		this.pumpMappingList = new PumpMappingList()
-		this.baseElement.append(this.pumpMappingList.getJQueryRepresentation());
+		this.append(this.pumpMappingList);
 		this.pumpMappingForm = new PumpMappingForm()
-		this.baseElement.append(this.pumpMappingForm.getJQueryRepresentation());
+		this.append(this.pumpMappingForm);
 	}
 }
 export default PumpMappingUi;

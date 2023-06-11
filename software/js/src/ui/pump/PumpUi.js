@@ -9,7 +9,7 @@ class PumpUi extends UiElement {
 		super.setBaseJQueryObject(this.baseElement);
 		this.baseElement.append($('<h2>Pumps</h2>'));
 		this.pumpList = new PumpList()
-		this.baseElement.append(this.pumpList.getJQueryRepresentation());
+		this.append(this.pumpList);
 	}
 }
 export default PumpUi;
