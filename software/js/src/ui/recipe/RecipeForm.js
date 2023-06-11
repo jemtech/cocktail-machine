@@ -20,7 +20,7 @@ class RecipeForm extends UiElement {
 	}
 	
 	addRecipeItemForm(){
-		this.recipeItemForm = RecipeItemForm({recipeId: this.recipe.id});
+		this.recipeItemForm = new RecipeItemForm({recipeId: this.recipe.id});
 		this.baseElement.append(this.recipeItemForm.getJQueryRepresentation());
 	}
 	
