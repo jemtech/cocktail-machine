@@ -42,8 +42,16 @@ def ingredientsLoop():
         newIngredient = {'name': inputVal}
         ingredient.insert(newIngredient)
     ingredientsLoop()
+    
+import os
+
+# if we run as SERVICE we do not want to exec code after this
+if(os.environ.get('SERVICE') == true):
+    return true
 
 def mainLoop():
+    if(os.environ.get('SERVICE') == true):
+        return true
     try:
         print('to list pumps type pumps')
         print('to interact with ingredients type ingredients')
@@ -69,4 +77,5 @@ def mainLoop():
     except Exception as e:
         print(e)
     mainLoop()
+
 mainLoop()

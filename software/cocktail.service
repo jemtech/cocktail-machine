@@ -7,6 +7,7 @@ After=network.target
 [Service]
 User=pi
 WorkingDirectory=/home/pi/cocktail-machine/software/
+Environment=SERVICE=true
 ExecStart=python ./main.py
 
 [Install]
