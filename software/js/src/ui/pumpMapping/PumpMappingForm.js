@@ -3,6 +3,7 @@ import Ingredient from "../../objects/Ingredient"
 import Pump from "../../objects/Pump"
 import PumpMapping from "../../objects/PumpMapping"
 import Select from "../inputs/Select"
+import Event from "../../misc/Event"
 import $ from "jquery";
 
 class PumpMappingForm extends UiElement {
@@ -52,8 +53,8 @@ class PumpMappingForm extends UiElement {
 			scope.pumpMapping.ingredientId = parseInt(scope.ingredientSelect.val());
 			
 			scope.pumpMapping.save(function(pumpMapping){
-				let event = new EVAEvent({
-					type: EVAEvent.TYPE_SAVE,
+				let event = new Event({
+					type: Event.TYPE_SAVE,
 					data: pumpMapping
 				});
 				scope.notify(event);
