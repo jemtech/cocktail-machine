@@ -10,7 +10,7 @@ class ShowModal extends UiElement {
 			}
 		}
 		
-		this.baseElement = $('<div class="modal" tabindex="-1">></div>');
+		this.baseElement = $('<div class="modal" tabindex="-1"></div>');
 		super.setBaseJQueryObject(this.baseElement);
 		this.modalDialog = $('<div class="modal-dialog"></div>');
 		this.baseElement.append(this.modalDialog);
