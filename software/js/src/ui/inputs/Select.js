@@ -43,6 +43,10 @@ class Select extends UiElement {
 		this.select.append($('<option value="' + value + '">' + text + '</option>'));
 	}
 	
+	clearItems(){
+		this.select.html('');
+	}
+	
 }
 Select.ID_COUNT = 0;
 export default Select;

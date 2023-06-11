@@ -11,25 +11,31 @@ class PumpMappingForm extends UiElement {
 		this.baseElement = $('<from></from>');
 		super.setBaseJQueryObject(this.baseElement);
 		
+		this.renderPumpSelect();
+		this.renderIngredientSelect();
+		this.renderSaveButton();
+		
 		let scope = this;
 		this.pumps = [];
 		Pump.loadAll(function(pumps){
+				scope.pumpSelect.clearItems();
 				let arrayLength = pumps.length;
 				for (let i = 0; i < arrayLength; i++) {
-					scope.pumps.push(pumps[i]);
+					pump = pumps[i];
+					scope.pumps.push(pump);
+					scope.pumpSelect.addSelectItem(pump.id, pump.id);
 				}
 			});
 		this.ingredients = [];
 		Ingredient.loadAll(function(ingredients){
+				scope.ingredientSelect.clearItems();
 				let arrayLength = ingredients.length;
 				for (let i = 0; i < arrayLength; i++) {
-					scope.ingredients.push(ingredients[i]);
+					ingredient = ingredients[i];
+					scope.ingredients.push(ingredient);
+					scope.ingredientSelect.addSelectItem(ingredient.id, ingredient.name);
 				}
 			});
-			
-		this.renderPumpSelect();
-		this.renderIngredientSelect();
-		this.renderSaveButton();
 	}
 	
 	renderSaveButton(){
@@ -58,21 +64,11 @@ class PumpMappingForm extends UiElement {
 	renderPumpSelect(){
 		this.pumpSelect = new Select({labelText: 'Pump'});
 		this.baseElement.append(this.pumpSelect.getJQueryRepresentation());
-		let arrayLength = this.pumps.length;
-		for (let i = 0; i < arrayLength; i++) {
-			let pump = this.pumps[i];
-			this.pumpSelect.addSelectItem(pump.id, pump.id);
-		}
 	}
 	
 	renderIngredientSelect(){
 		this.ingredientSelect = new Select({labelText: 'Ingredient'});
 		this.baseElement.append(this.ingredientSelect.getJQueryRepresentation());
-		let arrayLength = this.ingredients.length;
-		for (let i = 0; i < arrayLength; i++) {
-			let ingredient = this.ingredients[i];
-			this.ingredientSelect.addSelectItem(ingredient.id, ingredient.name);
-		}
 	}
 }
 export default PumpMappingForm;
