@@ -14,8 +14,8 @@ class LandingPage {
 		let mainContet = Misc.getMainContent();
 		let recipeUi = new RecipeUi()
 		mainContet.append(recipeUi.getJQueryRepresentation());
-		let ingedientUi = new IngredientUi()
-		mainContet.append(ingedientUi.getJQueryRepresentation());
+		let ingredientUi = new IngredientUi()
+		mainContet.append(ingredientUi.getJQueryRepresentation());
 		let pumpUi = new PumpUi()
 		mainContet.append(pumpUi.getJQueryRepresentation());
 		let pumpMappingUi = new PumpMappingUi()

@@ -25,7 +25,7 @@ class Ingredient {
 		}, Ingredient.API_ENDPOINT + '/' + id);
 	}
 	
-	insert() {
+	save() {
 		Objects.save(this, function(data){
 			Object.assign(this, data)
 		}, Ingredient.API_ENDPOINT)
