@@ -10,7 +10,7 @@ class Recipe(object):
     @staticmethod
     def queryById(id):
         dict = RecipeDB().loadById(id)
-        return RecipeDB(id=dict['id'], name=dict['name'])
+        return Recipe(id=dict['id'], name=dict['name'])
     
     def recipeItems(self):
         return RecipeItem.queryAll(self.id)
