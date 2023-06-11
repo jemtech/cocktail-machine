@@ -1,0 +1,12 @@
+[Unit]
+
+Description=Cocktail-Machine
+
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/cocktail-machine/software/
+ExecStart=python ./main.py
+
+[Install]
+WantedBy=multi-user.target

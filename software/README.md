@@ -48,3 +48,6 @@ inside the software folder (/home/pi/cocktail-machine/software/)
 ```
 nohup python ./main.py &
 ```
+
+## on boot
+If you want the server to boot on start copy [cocktail.service](cocktail.service) to /etc/systemd/system
