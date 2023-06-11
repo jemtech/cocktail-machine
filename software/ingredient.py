@@ -17,7 +17,7 @@ class Ingredient(object):
     @staticmethod
     def queryById(id):
         ingredients = []
-        dict = IngredientDB().loadById(ingredientId)
+        dict = IngredientDB().loadById(id)
         return Ingredient(id=dict['id'], name=dict['name'])
 
 class IngredientDB:
