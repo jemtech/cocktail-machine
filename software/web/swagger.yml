@@ -134,7 +134,7 @@ paths:
     get:
       operationId: "cocktailMashine.pump_mappings"
       tags:
-        - Pump
+        - Pump mapping
       description: "Read all pump mappings"
       responses:
         200:
