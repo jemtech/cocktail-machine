@@ -31,7 +31,6 @@ class RecipeItemDB:
         data = (recipeId,)
         query = "SELECT ingredient, recipe, ml FROM recipeItem"
         query += " WHERE recipe=%s"
-        query += " order by name desc"
         DBConnection.query(query, data, self.__handleRecipeItems)
         if len(self.recipeItems) < 1:
             return []
