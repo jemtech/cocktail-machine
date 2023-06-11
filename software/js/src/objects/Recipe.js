@@ -20,7 +20,7 @@ class Recipe {
 	
 	save(callback){
 		let scope = this;
-		Objects.post(this, function(recipe){
+		Objects.save(this, function(recipe){
 			recipe && Object.assign(scope, recipe);
 			callback(scope);
 		}, Recipe.API_ENDPOINT);

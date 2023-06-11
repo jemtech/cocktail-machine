@@ -1,10 +1,19 @@
 import db.DBConnection as DBConnection
+from recipeItem import RecipeItem
 
 class Recipe(object):
     
     def __init__(self, id, name):
         self.id = id
         self.name = name
+        
+    @staticmethod
+    def queryById(id):
+        dict = RecipeDB().loadById(id)
+        return RecipeDB(id=dict['id'], name=dict['name'])
+    
+    def recipeItems(self):
+        return RecipeItem.queryAll(self.id)
 
 class RecipeDB:
     
@@ -24,8 +33,24 @@ class RecipeDB:
         if len(self.recipes) < 1:
             return []
         return self.recipes
+            
+    def loadById(self, id):
+        query = "SELECT id, name FROM recipe Where id=%s"
+        DBConnection.query(query, (id,), self.__handleRecipes)
+        if len(self.recipes) < 1:
+            return
+        return self.recipes[0]
+    
+    def insert(self, recipe):
+        data = (recipe['name'],)
+        DBConnection.dbAction("INSERT INTO recipe (name) VALUES (%s) RETURNING id,name", data, self.__handleIngredients, commit = True)
+        return self.recipes[0]
         
 
 def read_all():
     return RecipeDB().loadAll()
+
+def insert(recipe):
+    return RecipeDB().insert(recipe)
+    
     

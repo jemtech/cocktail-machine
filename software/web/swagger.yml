@@ -12,6 +12,28 @@ basePath: "/api"
 
 # Paths supported by the server application
 paths:
+  /prepare:
+    post:
+      operationId: "cocktailMashine.prepare"
+      tags:
+        - Cocktail-Mashine
+      description: "Prepare a recipe"
+      parameters:
+        - in: body
+          name: Recipe
+          description: The Recipe to recipe.
+          schema:
+            properties:
+                id:
+                  type: "integer"
+      responses:
+        200:
+          description: "Successful preparing Recipe operation"
+          schema:
+            properties:
+              id:
+                type: "integer"
+  
   /recipe:
     get:
       operationId: "recipe.read_all"
@@ -29,6 +51,30 @@ paths:
                   type: "integer"
                 name:
                   type: "string"
+    put:
+      operationId: "recipe.insert"
+      tags:
+        - Recipe
+      description: "insert a recipe"
+      parameters:
+        - in: body
+          name: Recipe
+          description: The Recipe to insert.
+          schema:
+            properties:
+                id:
+                  type: "integer"
+                name:
+                  type: "string"
+      responses:
+        200:
+          description: "Successful insert Recipe operation"
+          schema:
+            properties:
+              id:
+                type: "integer"
+              name:
+                type: "string"
   /recipeItem:
     get:
       operationId: recipeItem.read_all
@@ -48,6 +94,34 @@ paths:
             type: "array"
             items:
               properties:
+                ingredient:
+                  type: "integer"
+                recipe:
+                  type: "integer"
+                ml:
+                  type: number
+    put:
+      operationId: "recipeItem.insert"
+      tags:
+        - Recipe
+      description: "insert a recipeItem"
+      parameters:
+        - in: body
+          name: Recipe
+          description: The recipe item to insert.
+          schema:
+            properties:
+                ingredient:
+                  type: "integer"
+                recipe:
+                  type: "integer"
+                ml:
+                  type: number
+      responses:
+        200:
+          description: "Successful insert recipe item operation"
+          schema:
+            properties:
                 ingredient:
                   type: "integer"
                 recipe:

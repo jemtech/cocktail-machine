@@ -6,6 +6,14 @@ class RecipeItem(object):
         self.ingredient = ingredient
         self.recipe = recipe
         self.ml = ml
+        
+    @staticmethod
+    def queryAll(recipeId):
+        recipeItems = []
+        for dict in RecipeItemDB().loadAll(recipeId):
+            recipeItem = RecipeItem(ingredient=dict['ingredient'], recipe=dict['recipe'], ml=dict['ml'])
+            recipeItems.append(recipeItem)
+        return recipeItems
 
 class RecipeItemDB:
     
@@ -20,14 +28,23 @@ class RecipeItemDB:
             self.recipeItems.append(recipeItem)
             
     def loadAll(self, recipeId):
+        data = (recipeId,)
         query = "SELECT ingredient, recipe, ml FROM recipeItem"
-        query += " WHERE recipe=" + str(recipeId)
+        query += " WHERE recipe=%s"
         query += " order by name desc"
-        DBConnection.query(query, None, self.__handleRecipeItems)
+        DBConnection.query(query, data, self.__handleRecipeItems)
         if len(self.recipeItems) < 1:
             return []
         return self.recipeItems
+    
+    def insert(self, recipeItem):
+        data = (recipeItem['ingredient'], recipeItem['recipe'], recipeItem['ml'])
+        DBConnection.dbAction("INSERT INTO recipeItem (ingredient, recipe, ml) VALUES (%s,%s,%s) RETURNING id,name", data, self.__handleIngredients, commit = True)
+        return self.recipes[0]
 
 
 def read_all(recipeId):
     return RecipeItemDB().loadAll(recipeId)
+
+def insert(recipeItem):
+    return RecipeItemDB().insert(recipeItem)

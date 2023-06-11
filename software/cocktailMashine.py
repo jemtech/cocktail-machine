@@ -19,6 +19,7 @@ class CocktailMashine:
     def executeRecipe(self, recipe):
         for recipeItem in recipe.recipeItems:
             self.pumpIngredient(recipeItem.ingredient, recipeItem.ml)
+        return recipe
             
     def _configurePumps(self):
         self.pumps = []
@@ -56,6 +57,13 @@ def map_pump(mapping):
     ingredientsPumpDic = getCocktailMashineSigelton().ingredientsPumpDic
     pumpMapping = {'pumpId': ingredientsPumpDic.get(ingredient.id).id, 'ingredientId': ingredient.id}
     return pumpMapping
+
+from recipe import Recipe
+def prepare(recipe):
+    cocktailMashine = getCocktailMashineSigelton()
+    recipe = Recipe.queryById(recipe['id'])
+    return cocktailMashine.executeRecipe(recipe)
+    
     
     
     
