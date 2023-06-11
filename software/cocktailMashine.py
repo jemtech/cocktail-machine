@@ -17,7 +17,7 @@ class CocktailMashine:
         pump.pump(ml)
         
     def executeRecipe(self, recipe):
-        for recipeItem in recipe.recipeItems:
+        for recipeItem in recipe.recipeItems():
             self.pumpIngredient(recipeItem.ingredient, recipeItem.ml)
         return recipe
             
