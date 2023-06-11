@@ -53,6 +53,7 @@ def map_pump(mapping):
     pump = cocktailMashine.pumps[mapping['pumpId']]
     ingredient = Ingredient.queryById(mapping['ingredientId'])
     cocktailMashine.mapIngredient(ingredient, pump)
+    ingredientsPumpDic = getCocktailMashineSigelton().ingredientsPumpDic
     pumpMapping = {'pumpId': ingredientsPumpDic.get(ingredient.id), 'ingredientId': ingredient.id}
     return pumpMapping
     
