@@ -28,14 +28,18 @@ class PumpMapping {
 		}, PumpMapping.API_ENDPOINT);
 	}
 	
-	getIngredient(){
+	getIngredient(callback){
 		if(this.ingredient == null){
 			let scope = this;
 			Ingredient.loadById(function(ingredient){
-				scope.setIngredient(ingredient)
-			}, id);
+				scope.setIngredient(ingredient);
+				if(callback){
+					callback(ingredient);
+				}
+			}, this.ingredientId);
+		} else {
+			callback(this.ingredient)
 		}
-		return this.ingredient;
 	}
 	
 	setIngredient(ingredient){

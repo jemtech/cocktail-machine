@@ -14,7 +14,9 @@ class PumpMappingList extends SortableListTable{
 	renderRow(pumpMapping, row) {
 		row.append($('<td>' + pumpMapping.pumpId +'</td>'))
 		row.append($('<td>' + pumpMapping.ingredientId +'</td>'))
-		row.append($('<td>' + pumpMapping.getIngredient().name +'</td>'))
+		pumpMapping.getIngredient(function(ingredient){
+			row.append($('<td>' + ingredient.name +'</td>'))
+		});
 	}
 	
 	renderHeaderRow(headerRow) {
