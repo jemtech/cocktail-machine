@@ -12,9 +12,10 @@ class RecipeForm extends UiElement {
 		
 		this.renderNameInput();
 		this.renderSaveButton();
-		
-		if (config.recipe) {
-			this.setRecipe(config.recipe);
+		if (config) {
+			if (config.recipe) {
+				this.setRecipe(config.recipe);
+			}
 		}
 	}
 	

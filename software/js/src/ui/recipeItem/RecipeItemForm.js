@@ -10,12 +10,13 @@ class RecipeItemForm extends UiElement {
 		super(config);
 		this.baseElement = $('<from></from>');
 		super.setBaseJQueryObject(this.baseElement);
-		
-		if (config.recipeId) {
-			this.recipeId = config.recipeId;
-		}
-		if (config.recipeItem) {
-			this.setRecipeItem(config.recipeItem);
+		if (config) {
+			if (config.recipeId) {
+				this.recipeId = config.recipeId;
+			}
+			if (config.recipeItem) {
+				this.setRecipeItem(config.recipeItem);
+			}
 		}
 		
 		this.renderIngredientSelect();
