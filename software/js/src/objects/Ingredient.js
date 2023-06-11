@@ -25,9 +25,13 @@ class Ingredient {
 		}, Ingredient.API_ENDPOINT + '/' + id);
 	}
 	
-	save() {
+	save(callback) {
+		let scope = this;
 		Objects.save(this, function(data){
-			Object.assign(this, data)
+			Object.assign(scope, data)
+			if(callback) {
+				callback(scope);
+			}
 		}, Ingredient.API_ENDPOINT)
 	}
 }

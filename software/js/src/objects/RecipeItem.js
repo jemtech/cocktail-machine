@@ -18,9 +18,13 @@ class RecipeItem {
 		}, RecipeItem.API_ENDPOINT + '?recipeId=' + recipeId);
 	}
 	
-	insert() {
+	save(callback) {
+		let scope = this;
 		Objects.save(this, function(data){
-			Object.assign(this, data)
+			Object.assign(scope, data)
+			if(callback) {
+				callback(scope);
+			}
 		}, RecipeItem.API_ENDPOINT)
 	}
 }

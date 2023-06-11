@@ -22,7 +22,9 @@ class Recipe {
 		let scope = this;
 		Objects.save(this, function(recipe){
 			recipe && Object.assign(scope, recipe);
-			callback(scope);
+			if(callback) {
+				callback(scope);
+			}
 		}, Recipe.API_ENDPOINT);
 	}
 	
@@ -32,12 +34,6 @@ class Recipe {
 			// TODO may retunred a queue
 			callback(scope);
 		}, Recipe.API_ENDPOINT + '/' + this.id + '/prepare');
-	}
-	
-	insert() {
-		Objects.save(this, function(data){
-			Object.assign(this, data)
-		}, Recipe.API_ENDPOINT)
 	}
 }
 Recipe.API_ENDPOINT = "recipe";
