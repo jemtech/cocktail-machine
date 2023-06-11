@@ -1,7 +1,7 @@
 # Hardware
 ## pump housing
 The pump housing is 3d printable an contains 4 pumps and its driver.
-[latest stl file](/peristaltic_pump_g528/g528_mount-Fusion008 (Solid).stl)
+[latest stl file](peristaltic_pump_g528/g528_mount-Fusion008%20%28Solid%29.stl)
 ## other hardware
 - pump is a g528 peristaltic pump
 - pump driver is a L298N dual h bridge
