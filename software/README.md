@@ -58,3 +58,31 @@ sudo systemctl enable cocktail.service
 
 ## run as access point
 https://raspberrypi.stackexchange.com/questions/89803/access-point-as-wifi-router-repeater-optional-with-bridge
+
+# Development
+
+## structure
+- "./"
+contains python and configuration files. (the python stuff should move to a subfolder)
+	- "cocktail.service"
+linux service file
+	- "config.conf"
+configuration file for the cocktail-mashine
+	- "pumps.conf"
+configuration file for physical available pumps
+- "js"
+contains all java-script related stuff for the ui
+- "web"
+contains the python webserver for the api
+	- "ui"
+contains all files served public by nginx
+- "db"
+contains the python database connector
+
+
+## compile javascript
+```
+cd ./js
+npm install
+npm run build
+```
