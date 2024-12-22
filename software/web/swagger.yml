@@ -150,6 +150,8 @@ paths:
                   type: "integer"
                 name:
                   type: "string"
+                alcohol:
+                  type: number
     put:
       operationId: "ingredient.insert"
       tags:
@@ -164,6 +166,8 @@ paths:
             properties:
               name:
                 type: "string"
+              alcohol:
+                type: number
       responses:
         200:
           description: "Successful insert ingredient operation"
@@ -174,6 +178,8 @@ paths:
                 type: "integer"
               name:
                 type: "string"
+              alcohol:
+                type: number
   /ingredient/{ingredientId}:
     get:
       operationId: ingredient.read_one
@@ -197,6 +203,8 @@ paths:
                   type: "integer"
                 name:
                   type: "string"
+                alcohol:
+                  type: number
   /pump:
     get:
       operationId: "pump.read_all"

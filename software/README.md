@@ -22,7 +22,7 @@
 - CREATE USER 'cocktailsForAll' IDENTIFIED BY 'drunken1';
 - GRANT ALL ON cocktail_mashine.* TO 'cocktailsForAll'@'%';
 - CREATE TABLE recipe (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), PRIMARY KEY (id));
-- CREATE TABLE ingredient (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), PRIMARY KEY (id));
+- CREATE TABLE ingredient (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), alcohol FLOAT(4,4) UNSIGNED, PRIMARY KEY (id));
 - CREATE TABLE recipeItem (ingredient BIGINT NOT NULL, recipe BIGINT NOT NULL, ml DOUBLE, INDEX (recipe), INDEX (ingredient));
 - ALTER TABLE recipeItem ADD FOREIGN KEY (recipe) REFERENCES recipe(id) ON DELETE CASCADE;
 - ALTER TABLE recipeItem ADD FOREIGN KEY (ingredient) REFERENCES ingredient(id) ON DELETE CASCADE;

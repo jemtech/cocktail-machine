@@ -21,6 +21,7 @@ class IngredientForm extends UiElement {
 	setIngredient(ingredient){
 		this.ingredient = ingredient;
 		this.nameInputInput.text(this.ingredient.name);
+		this.nameInputInput.text(this.ingredient.alcohol * 100);
 	}
 	
 	renderSaveButton(){
@@ -33,6 +34,7 @@ class IngredientForm extends UiElement {
 			}
 			
 			scope.ingredient.name = scope.nameInputInput.val();
+			scope.ingredient.alcohol = scope.alcoholInputInput.val() / 100.0;
 			
 			scope.ingredient.save(function(ingredient){
 				scope.setIngredient(ingredient);
@@ -50,6 +52,15 @@ class IngredientForm extends UiElement {
 		this.baseElement.append(this.nameInputDiv);
 		this.nameInputInput = $('<input type="text" class="form-control" placeholder="Ingredient name">');
 		this.nameInputDiv.append(this.nameInputInput);
+	}
+	
+	renderAlcoholInput(){
+		this.alcoholInputDiv = $('<div class="input-group mb-3">');
+		this.baseElement.append(this.alcoholInputDiv);
+		this.alcoholInputInput = $('<input type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="99.99">');
+		this.alcoholInputDiv.append(this.alcoholInputInput);
+		this.alcoholInputApendix = $('<span class="input-group-text">%</span>');
+		this.alcoholInputDiv.append(this.alcoholInputApendix);
 	}
 }
 export default IngredientForm;
