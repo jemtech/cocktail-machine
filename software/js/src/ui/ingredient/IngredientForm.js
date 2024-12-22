@@ -10,6 +10,7 @@ class IngredientForm extends UiElement {
 		super.setBaseJQueryObject(this.baseElement);
 		
 		this.renderNameInput();
+		this.renderAlcoholInput();
 		this.renderSaveButton();
 		if (config) {
 			if (config.ingredient) {
@@ -50,6 +51,8 @@ class IngredientForm extends UiElement {
 	renderNameInput(){
 		this.nameInputDiv = $('<div class="input-group mb-3">');
 		this.baseElement.append(this.nameInputDiv);
+		this.alcoholInputPrefix = $('<span class="input-group-text">Name</span>');
+		this.nameInputDiv.append(this.alcoholInputPrefix);
 		this.nameInputInput = $('<input type="text" class="form-control" placeholder="Ingredient name">');
 		this.nameInputDiv.append(this.nameInputInput);
 	}
@@ -57,7 +60,9 @@ class IngredientForm extends UiElement {
 	renderAlcoholInput(){
 		this.alcoholInputDiv = $('<div class="input-group mb-3">');
 		this.baseElement.append(this.alcoholInputDiv);
-		this.alcoholInputInput = $('<input type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="99.99">');
+		this.alcoholInputPrefix = $('<span class="input-group-text">Alcohol</span>');
+		this.alcoholInputDiv.append(this.alcoholInputPrefix);
+		this.alcoholInputInput = $('<input type="number" class="form-control" placeholder="0" step="0.01" min="0" max="99.99">');
 		this.alcoholInputDiv.append(this.alcoholInputInput);
 		this.alcoholInputApendix = $('<span class="input-group-text">%</span>');
 		this.alcoholInputDiv.append(this.alcoholInputApendix);
