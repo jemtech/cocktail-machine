@@ -1,0 +1,5 @@
+Flask
+connexion[swagger-ui]
+mysql-connector
+adafruit-pca9685
+pcf8574
