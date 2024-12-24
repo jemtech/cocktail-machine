@@ -205,6 +205,80 @@ paths:
                   type: "string"
                 alcohol:
                   type: number
+  /order:
+    get:
+      operationId: "order.read_all"
+      tags:
+        - Order
+      description: "Read all orders"
+      response:
+        200:
+          description: "Successful read order list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                id:
+                  type: "integer"
+                recipe:
+                  type: "integer"
+                createdAt:
+                  type: "string"
+                processingStatus:
+                  type: "string"
+  /order/{orderId}:
+    get:
+      operationId: order.read_one
+      tags:
+        - Order
+      summary: Read order
+      description: Read one order by Id
+      parameters:
+        - name: orderId
+          in: path
+          description: id of the order
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read order from db operation
+          schema:
+            type: object
+            properties:
+                id:
+                  type: "integer"
+                recipe:
+                  type: "integer"
+                createdAt:
+                  type: "string"
+                processingStatus:
+                  type: "string"
+    delete:
+      operationId: order.cancel
+      tags:
+        - Order
+      summary: Cancel order
+      description: Cancels an order by Id
+      parameters:
+        - name: orderId
+          in: path
+          description: id of the order
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully canceled order operation
+          schema:
+            type: object
+            properties:
+                id:
+                  type: "integer"
+                recipe:
+                  type: "integer"
+                createdAt:
+                  type: "string"
+                processingStatus:
+                  type: "string"
   /pump:
     get:
       operationId: "pump.read_all"
