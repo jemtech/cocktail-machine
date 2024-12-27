@@ -13,10 +13,12 @@ class IngedientList extends SortableListTable{
 	
 	renderRow(ingredient, row) {
 		row.append($('<td>' + ingredient.name +'</td>'))
+		row.append($('<td>' + ingredient.alcohol * 100 +'</td>'))
 	}
 	
 	renderHeaderRow(headerRow) {
 		headerRow.append($('<th>Name</th>'))
+		headerRow.append($('<th>Alcohol</th>'))
 	}
 }
 export default IngedientList
