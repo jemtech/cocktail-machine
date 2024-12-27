@@ -28,8 +28,8 @@ CREATE TABLE ingredient (id BIGINT NOT NULL AUTO_INCREMENT, name VARCHAR(128), a
 CREATE TABLE recipeItem (ingredient BIGINT NOT NULL, recipe BIGINT NOT NULL, ml DOUBLE, INDEX (recipe), INDEX (ingredient));
 ALTER TABLE recipeItem ADD FOREIGN KEY (recipe) REFERENCES recipe(id) ON DELETE CASCADE;
 ALTER TABLE recipeItem ADD FOREIGN KEY (ingredient) REFERENCES ingredient(id) ON DELETE CASCADE;
-CREATE TABLE order (id BIGINT NOT NULL AUTO_INCREMENT, recipe BIGINT NOT NULL, PRIMARY KEY (id), createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, processingStatus ENUM('new', 'processing', 'completed', 'canceled')  );
-ALTER TABLE order ADD FOREIGN KEY (recipe) REFERENCES recipe(id) ON DELETE RESTRICT;
+CREATE TABLE orders (id BIGINT NOT NULL AUTO_INCREMENT, recipe BIGINT NOT NULL, createdAt TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP, processingStatus ENUM('new', 'processing', 'completed', 'canceled'), PRIMARY KEY (id));
+ALTER TABLE orders ADD FOREIGN KEY (recipe) REFERENCES recipe(id) ON DELETE RESTRICT;
 ```
 ## nginx config
 

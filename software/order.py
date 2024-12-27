@@ -35,7 +35,7 @@ class OrderDB:
             self.orders.append(order)
             
     def loadAll(self):
-        query = "SELECT id, recipe, createdAt, processingStatus FROM order"
+        query = "SELECT id, recipe, createdAt, processingStatus FROM orders"
         query += " order by createdAt desc"
         DBConnection.query(query, None, self.__handleOrders)
         if len(self.orders) < 1:
@@ -43,7 +43,7 @@ class OrderDB:
         return self.orders
             
     def loadById(self, id):
-        query = "SELECT id, recipe, createdAt, processingStatus FROM order Where id=%s"
+        query = "SELECT id, recipe, createdAt, processingStatus FROM orders Where id=%s"
         DBConnection.query(query, (id,), self.__handleOrders)
         if len(self.orders) < 1:
             return
@@ -51,12 +51,12 @@ class OrderDB:
     
     def insert(self, order):
         data = (order['recipe'], "new")
-        DBConnection.dbAction("INSERT INTO order (recipe, processingStatus) VALUES (%s, %s) RETURNING id, recipe, createdAt, processingStatus", data, self.__handleOrders, commit = True)
+        DBConnection.dbAction("INSERT INTO orders (recipe, processingStatus) VALUES (%s, %s) RETURNING id, recipe, createdAt, processingStatus", data, self.__handleOrders, commit = True)
         return self.orders[0]
     
     def update(self, order):
         data = (order['processingStatus'], order['id'])
-        DBConnection.dbAction("UPDATE order SET processingStatus=%s Where id=%s) RETURNING id, recipe, createdAt, processingStatus", data, self.__handleOrders, commit = True)
+        DBConnection.dbAction("UPDATE orders SET processingStatus=%s Where id=%s) RETURNING id, recipe, createdAt, processingStatus", data, self.__handleOrders, commit = True)
         return self.orders[0]
 
 def read_all():
