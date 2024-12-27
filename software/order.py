@@ -11,7 +11,7 @@ class Order(object):
     @staticmethod
     def queryById(id):
         dict = OrderDB().loadById(id)
-        return Order(id=dict['id'], name=dict['recipe'], name=dict['createdAt'], name=dict['processingStatus'])
+        return Order(id=dict['id'], recipe=dict['recipe'], createdAt=dict['createdAt'], processingStatus=dict['processingStatus'])
     
     def toHash(self):
         return {
