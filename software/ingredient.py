@@ -49,7 +49,7 @@ class IngredientDB:
     
     def insert(self, ingredient):
         data = (ingredient['name'],ingredient['alcohol'])
-        DBConnection.dbAction("INSERT INTO ingredient (name, alcohol) VALUES (%s, %s) RETURNING id,name,acohol", data, self.__handleIngredients, commit = True)
+        DBConnection.dbAction("INSERT INTO ingredient (name, alcohol) VALUES (%s, %s) RETURNING id,name,alcohol", data, self.__handleIngredients, commit = True)
         return self.ingredients[0]
 
 def read_all():
