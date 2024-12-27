@@ -211,7 +211,7 @@ paths:
       tags:
         - Order
       description: "Read all orders"
-      response:
+      responses:
         200:
           description: "Successful read order list operation"
           schema:
