@@ -8,7 +8,7 @@ import time
 class Pump:
     pwm = None
     
-    def __init__(self, id, mlPerS = 2.0, pwmChannel = None, pcf_address = 0x20,
+    def __init__(self, id, mlPerS = 2.5, pwmChannel = None, pcf_address = 0x20,
                   i2c_port_num = 1, pcf_fw = 0, pcf_bw = 1, pullBackMl = 1):
         self.id = id
         self.mlPerS = mlPerS
